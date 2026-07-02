@@ -51,8 +51,9 @@ model GalleryItem {
   title     String
   description String?
   type      String   // "image" or "video"
-  url       String   // Cloudinary secure_url
-  publicId  String   // Cloudinary public_id
+  mimeType  String   // "image/jpeg", "video/mp4", etc.
+  data      Bytes    // Binary file data stored directly in database
+  fileSize  Int      // File size in bytes
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 

@@ -8,6 +8,7 @@ import crypto from 'crypto';
 import dotenv from 'dotenv';
 import { prisma } from './lib/prisma.js';
 import { upload, cloudinary } from './cloudinary.js';
+import multer from 'multer';
 
 dotenv.config();
 
@@ -371,14 +372,24 @@ app.get('/api/gallery', async (req, res) => {
   try {
     const items = await prisma.galleryItem.findMany({
       orderBy: { createdAt: 'desc' },
+      select: {
+        id: true,
+        title: true,
+        description: true,
+        type: true,
+        mimeType: true,
+        fileSize: true,
+        createdAt: true,
+      },
     });
     res.json(items);
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    console.error('Gallery fetch error:', err);
+    res.status(500).json({ error: 'Failed to fetch gallery' });
   }
 });
 
-app.post('/api/gallery', authenticate, adminOnly, upload.single('file'), async (req, res) => {
+app.post('/api/gallery', authenticate, adminOnly, multer({ storage: multer.memoryStorage() }).single('file'), async (req, res) => {
   try {
     const { title, description, type } = req.body;
 
@@ -390,20 +401,56 @@ app.post('/api/gallery', authenticate, adminOnly, upload.single('file'), async (
       return res.status(400).json({ error: 'No file uploaded' });
     }
 
+    const maxSize = 50 * 1024 * 1024;
+    if (req.file.size > maxSize) {
+      return res.status(400).json({ error: 'File too large. Maximum 50MB allowed.' });
+    }
+
     const item = await prisma.galleryItem.create({
       data: {
         title,
         description: description || '',
         type,
-        url: req.file.secure_url,
-        publicId: req.file.public_id,
+        mimeType: req.file.mimetype,
+        data: req.file.buffer,
+        fileSize: req.file.size,
       },
     });
 
-    res.json(item);
+    res.json({
+      id: item.id,
+      title: item.title,
+      description: item.description,
+      type: item.type,
+      mimeType: item.mimeType,
+      fileSize: item.fileSize,
+      createdAt: item.createdAt,
+    });
   } catch (err) {
     console.error('Gallery upload error:', err);
     res.status(500).json({ error: 'Upload failed: ' + err.message });
+  }
+});
+
+
+app.get('/api/gallery/:id/file', async (req, res) => {
+  try {
+    const item = await prisma.galleryItem.findUnique({
+      where: { id: req.params.id },
+    });
+
+    if (!item) {
+      return res.status(404).json({ error: 'Gallery item not found' });
+    }
+
+    res.setHeader('Content-Type', item.mimeType);
+    res.setHeader('Content-Length', item.data.length);
+    res.setHeader('Content-Disposition', `inline; filename="${item.title}"`);
+
+    res.send(item.data);
+  } catch (err) {
+    console.error('Gallery download error:', err);
+    res.status(500).json({ error: 'Failed to download file' });
   }
 });
 

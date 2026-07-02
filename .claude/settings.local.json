@@ -50,7 +50,19 @@
       "Bash(psql --version)",
       "Bash(createdb gym_app)",
       "Bash(psql -lqt)",
-      "Bash(pkill -f \"npm run dev.*frontend\")"
+      "Bash(pkill -f \"npm run dev.*frontend\")",
+      "Bash(cat)",
+      "Bash(base64 -D /tmp/test-gym.png)",
+      "Bash(python3 *)",
+      "Bash(playwright-cli upload *)",
+      "Bash(playwright-cli requests *)",
+      "Bash(node /tmp/update-server.js)",
+      "Bash(head -10 \"/Users/janarddan/1.jana files/3.MyMacProjects/gym-web-app/backend/server.js\")",
+      "Bash(echo \"import multer from 'multer';\")",
+      "Bash(tail -n +11 \"/Users/janarddan/1.jana files/3.MyMacProjects/gym-web-app/backend/server.js\")",
+      "Bash(mv /tmp/server-header.js \"/Users/janarddan/1.jana files/3.MyMacProjects/gym-web-app/backend/server.js\")",
+      "Bash(pkill -f \"npm run dev.*backend\")",
+      "Bash(node *)"
     ]
   }
 }
