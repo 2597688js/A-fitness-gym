@@ -9,6 +9,7 @@ import dotenv from 'dotenv';
 import { prisma } from './lib/prisma.js';
 import { upload, cloudinary } from './cloudinary.js';
 import multer from 'multer';
+import { transcodeVideoToH264, isVideoFile } from './lib/transcoding.js';
 
 dotenv.config();
 
@@ -382,7 +383,12 @@ app.get('/api/gallery', async (req, res) => {
         createdAt: true,
       },
     });
-    res.json(items);
+    // Add URL for each item so frontend can display it
+    const itemsWithUrls = items.map(item => ({
+      ...item,
+      url: `${process.env.BACKEND_URL || 'http://localhost:3000'}/api/gallery/${item.id}/file`,
+    }));
+    res.json(itemsWithUrls);
   } catch (err) {
     console.error('Gallery fetch error:', err);
     res.status(500).json({ error: 'Failed to fetch gallery' });
@@ -401,9 +407,33 @@ app.post('/api/gallery', authenticate, adminOnly, multer({ storage: multer.memor
       return res.status(400).json({ error: 'No file uploaded' });
     }
 
-    const maxSize = 50 * 1024 * 1024;
+    const maxSize = 200 * 1024 * 1024; // 200MB limit for large video files
     if (req.file.size > maxSize) {
-      return res.status(400).json({ error: 'File too large. Maximum 50MB allowed.' });
+      return res.status(400).json({ error: 'File too large. Maximum 200MB allowed.' });
+    }
+
+    let finalBuffer = req.file.buffer;
+    let finalMimeType = req.file.mimetype;
+    let finalFileSize = req.file.size;
+
+    // Auto-transcode videos to H.264 MP4
+    if (type === 'video' && isVideoFile(req.file.mimetype)) {
+      try {
+        console.log(`🎬 Transcoding video: ${title}`);
+        const startTime = Date.now();
+
+        finalBuffer = await transcodeVideoToH264(req.file.buffer, req.file.mimetype);
+        finalMimeType = 'video/mp4';
+        finalFileSize = finalBuffer.length;
+
+        const duration = ((Date.now() - startTime) / 1000).toFixed(1);
+        console.log(`✅ Transcode complete (${duration}s)`);
+        console.log(`   Original: ${(req.file.size / 1024 / 1024).toFixed(2)}MB`);
+        console.log(`   Transcoded: ${(finalFileSize / 1024 / 1024).toFixed(2)}MB`);
+      } catch (transErr) {
+        console.error('⚠️ Transcode failed, using original file:', transErr.message);
+        // Fall back to original if transcode fails
+      }
     }
 
     const item = await prisma.galleryItem.create({
@@ -411,9 +441,9 @@ app.post('/api/gallery', authenticate, adminOnly, multer({ storage: multer.memor
         title,
         description: description || '',
         type,
-        mimeType: req.file.mimetype,
-        data: req.file.buffer,
-        fileSize: req.file.size,
+        mimeType: finalMimeType,
+        data: finalBuffer,
+        fileSize: finalFileSize,
       },
     });
 
@@ -425,6 +455,7 @@ app.post('/api/gallery', authenticate, adminOnly, multer({ storage: multer.memor
       mimeType: item.mimeType,
       fileSize: item.fileSize,
       createdAt: item.createdAt,
+      url: `${process.env.BACKEND_URL || 'http://localhost:3000'}/api/gallery/${item.id}/file`,
     });
   } catch (err) {
     console.error('Gallery upload error:', err);
@@ -443,11 +474,40 @@ app.get('/api/gallery/:id/file', async (req, res) => {
       return res.status(404).json({ error: 'Gallery item not found' });
     }
 
-    res.setHeader('Content-Type', item.mimeType);
-    res.setHeader('Content-Length', item.data.length);
-    res.setHeader('Content-Disposition', `inline; filename="${item.title}"`);
+    const fileSize = item.data.length;
+    const range = req.headers.range;
 
-    res.send(item.data);
+    // Determine correct MIME type for video files
+    let contentType = item.mimeType || 'video/mp4';
+    if (item.type === 'video' && !contentType.startsWith('video/')) {
+      contentType = 'video/mp4';
+    }
+
+    // Set CORS and streaming headers
+    res.setHeader('Content-Type', contentType);
+    res.setHeader('Content-Disposition', `inline; filename="${item.title}"`);
+    res.setHeader('Accept-Ranges', 'bytes');
+    res.setHeader('Cache-Control', 'public, max-age=3600');
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Cross-Origin-Resource-Policy', 'cross-origin');
+    res.setHeader('Vary', 'Origin');
+
+    if (range) {
+      // Handle range requests for video seeking
+      const parts = range.replace(/bytes=/, '').split('-');
+      const start = parseInt(parts[0], 10);
+      const end = parts[1] ? parseInt(parts[1], 10) : fileSize - 1;
+      const chunksize = (end - start) + 1;
+
+      res.writeHead(206, {
+        'Content-Range': `bytes ${start}-${end}/${fileSize}`,
+        'Content-Length': chunksize,
+      });
+      res.end(item.data.slice(start, end + 1));
+    } else {
+      res.setHeader('Content-Length', fileSize);
+      res.end(item.data);
+    }
   } catch (err) {
     console.error('Gallery download error:', err);
     res.status(500).json({ error: 'Failed to download file' });

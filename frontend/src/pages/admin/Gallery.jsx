@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useAuth } from '../../context/AuthContext';
@@ -13,10 +13,42 @@ export default function Gallery() {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
   const [selectedItem, setSelectedItem] = useState(null);
+  const modalVideoRef = useRef(null);
+
+  const videoPosterGradient = 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Cdefs%3E%3ClinearGradient id=%22grad%22 x1=%220%25%22 y1=%220%25%22 x2=%22100%25%22 y2=%22100%25%22%3E%3Cstop offset=%220%25%22 style=%22stop-color:%231e293b;stop-opacity:1%22 /%3E%3Cstop offset=%22100%25%22 style=%22stop-color:%220f172a;stop-opacity:1%22 /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width=%22400%22 height=%22300%22 fill=%22url(%23grad)%22/%3E%3C/svg%3E';
 
   useEffect(() => {
     fetchGallery();
   }, []);
+
+  // Play video when modal opens, pause when closing
+  useEffect(() => {
+    if (selectedItem && selectedItem.type === 'video') {
+      // Pause all gallery videos
+      document.querySelectorAll('video').forEach(video => {
+        if (video !== modalVideoRef.current) {
+          video.pause();
+        }
+      });
+      // Play modal video
+      if (modalVideoRef.current) {
+        modalVideoRef.current.play().catch(err => console.log('Auto-play prevented'));
+      }
+    }
+  }, [selectedItem]);
+
+  // Pause video and stop all other videos when closing modal
+  const handleCloseModal = () => {
+    if (modalVideoRef.current) {
+      modalVideoRef.current.pause();
+      modalVideoRef.current.currentTime = 0;
+    }
+    // Pause all videos in gallery
+    document.querySelectorAll('video').forEach(video => {
+      video.pause();
+    });
+    setSelectedItem(null);
+  };
 
   const fetchGallery = async () => {
     try {
@@ -31,9 +63,9 @@ export default function Gallery() {
     const file = e.target.files[0];
     if (!file) return;
 
-    const maxSize = 100 * 1024 * 1024; // 100MB limit (Cloudinary free tier)
+    const maxSize = 200 * 1024 * 1024; // 200MB limit for large video files
     if (file.size > maxSize) {
-      setError(`File too large (${(file.size / 1024 / 1024).toFixed(1)}MB). Maximum 100MB allowed.`);
+      setError(`File too large (${(file.size / 1024 / 1024).toFixed(1)}MB). Maximum 200MB allowed.`);
       e.target.value = '';
       return;
     }
@@ -207,6 +239,7 @@ export default function Gallery() {
                   justifyContent: 'center',
                   overflow: 'hidden',
                   transition: 'opacity 0.2s',
+                  position: 'relative',
                 }}
                 onMouseEnter={e => e.currentTarget.style.opacity = '0.8'}
                 onMouseLeave={e => e.currentTarget.style.opacity = '1'}
@@ -218,11 +251,46 @@ export default function Gallery() {
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                   />
                 ) : (
-                  <video
-                    src={item.url}
-                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                    controls
-                  />
+                  <>
+                    <video
+                      poster={videoPosterGradient}
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                        backgroundColor: '#000',
+                        display: 'block'
+                      }}
+                      muted
+                      preload="none"
+                      controlsList="nodownload"
+                    >
+                      <source src={item.url} type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+                    <div
+                      style={{
+                        position: 'absolute',
+                        top: '50%',
+                        left: '50%',
+                        transform: 'translate(-50%, -50%)',
+                        width: '4rem',
+                        height: '4rem',
+                        background: 'rgba(59, 130, 246, 0.95)',
+                        borderRadius: '50%',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        fontSize: '1.8rem',
+                        pointerEvents: 'none',
+                        boxShadow: '0 4px 16px rgba(0, 0, 0, 0.5), 0 0 0 2px rgba(255, 255, 255, 0.2)',
+                        transition: 'all 0.2s ease',
+                        color: 'white',
+                      }}
+                    >
+                      ▶
+                    </div>
+                  </>
                 )}
               </div>
               <div style={{ padding: '1rem' }}>
@@ -244,7 +312,10 @@ export default function Gallery() {
                   </p>
                 )}
                 <button
-                  onClick={() => handleDelete(item._id || item.id)}
+                  onClick={e => {
+                    e.stopPropagation();
+                    handleDelete(item._id || item.id);
+                  }}
                   style={{
                     width: '100%',
                     marginTop: '1rem',
@@ -284,7 +355,7 @@ export default function Gallery() {
             padding: '2rem',
             backdropFilter: 'blur(4px)',
           }}
-          onClick={() => setSelectedItem(null)}
+          onClick={handleCloseModal}
         >
           <div
             style={{
@@ -303,7 +374,7 @@ export default function Gallery() {
           >
             {/* Close Button */}
             <button
-              onClick={() => setSelectedItem(null)}
+              onClick={handleCloseModal}
               style={{
                 position: 'absolute',
                 top: '1rem',
@@ -351,15 +422,20 @@ export default function Gallery() {
                 />
               ) : (
                 <video
-                  src={selectedItem.url}
+                  ref={modalVideoRef}
                   controls
-                  autoPlay
+                  controlsList="nodownload"
+                  preload="auto"
                   style={{
                     maxWidth: '100%',
                     maxHeight: '70vh',
                     borderRadius: '0.5rem',
+                    backgroundColor: '#000',
                   }}
-                />
+                >
+                  <source src={selectedItem.url} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
               )}
             </div>
 
