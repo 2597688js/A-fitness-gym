@@ -49,7 +49,8 @@
       "Bash(brew services *)",
       "Bash(psql --version)",
       "Bash(createdb gym_app)",
-      "Bash(psql -lqt)"
+      "Bash(psql -lqt)",
+      "Bash(pkill -f \"npm run dev.*frontend\")"
     ]
   }
 }

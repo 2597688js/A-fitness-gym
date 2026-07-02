@@ -1,0 +1,68 @@
+- generic [ref=f5e31]:
+  - complementary [ref=f5e32]:
+    - link "⚡ A Fitness Gym" [ref=f5e33] [cursor=pointer]:
+      - /url: /
+    - generic [ref=f5e34]: Member Portal
+    - navigation [ref=f5e35]:
+      - link "🏠 Dashboard" [ref=f5e36] [cursor=pointer]:
+        - /url: /member/dashboard
+        - generic [ref=f5e37]: 🏠
+        - text: Dashboard
+      - link "👤 My Profile" [ref=f5e38] [cursor=pointer]:
+        - /url: /member/profile
+        - generic [ref=f5e39]: 👤
+        - text: My Profile
+      - link "🎫 Membership" [ref=f5e40] [cursor=pointer]:
+        - /url: /member/membership
+        - generic [ref=f5e41]: 🎫
+        - text: Membership
+    - generic [ref=f5e42]:
+      - generic [ref=f5e43]:
+        - text: Logged in as
+        - strong [ref=f5e44]: John Doe
+      - button "🚪 Logout" [ref=f5e45] [cursor=pointer]
+  - main [ref=f5e46]:
+    - generic [ref=f5e47]:
+      - heading "Welcome back, John 👋" [level=1] [ref=f5e48]
+      - paragraph [ref=f5e49]: Here's an overview of your membership and progress.
+    - generic [ref=f5e50]:
+      - generic [ref=f5e51]:
+        - generic [ref=f5e52]: Membership Status
+        - generic [ref=f5e53]: ✓ Active
+        - generic [ref=f5e54]: Premium
+      - generic [ref=f5e55]:
+        - generic [ref=f5e56]: Days Remaining
+        - generic [ref=f5e57]: "0"
+        - generic [ref=f5e58]: Expires 2025-03-01
+      - generic [ref=f5e59]:
+        - generic [ref=f5e60]: Total Memberships
+        - generic [ref=f5e61]: "1"
+        - generic [ref=f5e62]: Since 2026
+    - generic [ref=f5e63]:
+      - heading "Quick Actions" [level=3] [ref=f5e64]
+      - generic [ref=f5e65]:
+        - link "🎫 Buy / Renew Membership" [ref=f5e66] [cursor=pointer]:
+          - /url: /member/membership
+        - link "✏️ Update Profile" [ref=f5e67] [cursor=pointer]:
+          - /url: /member/profile
+        - link "📅 Browse Classes" [ref=f5e68] [cursor=pointer]:
+          - /url: /classes
+    - generic [ref=f5e69]:
+      - heading "Membership History" [level=3] [ref=f5e70]
+      - table [ref=f5e72]:
+        - rowgroup [ref=f5e73]:
+          - row "Plan Status Start End Amount" [ref=f5e74]:
+            - columnheader "Plan" [ref=f5e75]
+            - columnheader "Status" [ref=f5e76]
+            - columnheader "Start" [ref=f5e77]
+            - columnheader "End" [ref=f5e78]
+            - columnheader "Amount" [ref=f5e79]
+        - rowgroup [ref=f5e80]:
+          - row "Premium active 2024-03-01 2025-03-01 ₹12,000" [ref=f5e81]:
+            - cell "Premium" [ref=f5e82]:
+              - strong [ref=f5e83]: Premium
+            - cell "active" [ref=f5e84]:
+              - generic [ref=f5e85]: active
+            - cell "2024-03-01" [ref=f5e86]
+            - cell "2025-03-01" [ref=f5e87]
+            - cell "₹12,000" [ref=f5e88]

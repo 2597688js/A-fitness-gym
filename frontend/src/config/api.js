@@ -9,7 +9,7 @@ const getAPIURL = () => {
 
   // If we're on localhost dev server, use localhost backend directly
   if (hostname === 'localhost' || hostname === '127.0.0.1') {
-    return 'http://localhost:5001';
+    return 'http://localhost:3000';
   }
 
   // For ngrok and other remote URLs, use relative paths (requires proxy in Vite)
@@ -18,8 +18,8 @@ const getAPIURL = () => {
     return '';  // Empty string means use relative paths - /api/* will be proxied
   }
 
-  // For other deployments (VMs, servers), try same host with port 5001
-  return `${protocol}//${hostname}:5001`;
+  // For other deployments (VMs, servers), try same host with port 3000
+  return `${protocol}//${hostname}:3000`;
 };
 
 export const API_URL = getAPIURL();
