@@ -1,4 +1,0 @@
-[     463ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=797ef82e:14335
-[     470ms] [LOG] API_URL: http://localhost:3000 @ http://localhost:5173/src/config/api.js:33
-[     582ms] [VERBOSE] [DOM] Input elements should have autocomplete attributes (suggested: "current-password"): (More info: https://goo.gl/9p2vKq) %o @ http://localhost:5173/admin/login:0
-[   11820ms] [ERROR] Unsupported style property %s. Did you mean %s? @media (max-width: 767px) @media (maxWidth: 767px) @ http://localhost:5173/@vite/client:524

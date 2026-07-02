@@ -1,98 +1,100 @@
-# ⚡ A Fitness Gym — Gym Website
+# A Fitness Gym
 
-A full-stack gym website built with **Node.js + Express** (backend) and **React + Vite** (frontend), featuring Razorpay payment integration.
+Full-stack gym management platform with member registration, membership plans, and admin dashboard.
+
+**Tech Stack:** Node.js + Express (backend), React + Vite (frontend), PostgreSQL (database), Razorpay (payments)
+
+## Prerequisites
+
+- Node.js 18+
+- PostgreSQL 14+
+
+## Quick Start
+
+### 1. Clone and Install
+
+```bash
+git clone <repo-url>
+cd gym-web-app
+
+# Backend
+cd backend
+npm install
+
+# Frontend (in new terminal)
+cd frontend
+npm install
+```
+
+### 2. Setup Database
+
+```bash
+# Create PostgreSQL database
+createdb gym_db
+
+# Run migrations
+cd backend
+npx prisma migrate deploy
+```
+
+### 3. Configure Environment
+
+Create `backend/.env`:
+
+```
+DATABASE_URL=postgresql://localhost/gym_db
+JWT_SECRET=your_secret_key_here
+RAZORPAY_KEY_ID=rzp_test_XXXXX
+RAZORPAY_KEY_SECRET=XXXXX
+FRONTEND_URL=http://localhost:5173
+```
+
+Frontend uses http://localhost:5001 (hard-coded) for API requests.
+
+### 4. Run Locally
+
+**Backend** (from `backend/` directory):
+```bash
+npm start
+```
+Runs at http://localhost:5001
+
+**Frontend** (from `frontend/` directory):
+```bash
+npm run dev
+```
+Runs at http://localhost:5173
+
+## Demo Credentials
+
+- **Admin:** `admin@afitnessgyam.com` / `admin123`
+- **Member:** `john@example.com` / `john123`
+
+## Testing
+
+Run Playwright tests:
+
+```bash
+cd frontend
+npm run test
+```
+
+Tests located in `frontend/tests/`:
+- `app.spec.ts` — Main app flow tests
+- `login.spec.ts` — Authentication tests
 
 ## Project Structure
 
 ```
-gym-website/
-├── backend/          Node.js/Express API
-│   ├── server.js     All routes: auth, member, admin, payments
-│   └── .env.example  Environment variable template
-└── frontend/         React + Vite app
-    └── src/
-        ├── pages/public/   Home, About, Classes, Pricing, Join
-        ├── pages/member/   Dashboard, Profile, Membership (Razorpay)
-        └── pages/admin/    Dashboard, Members, MemberDetail
+backend/
+  ├── server.js          Express API server
+  ├── prisma/            Database schema & migrations
+  └── lib/               Utilities (transcoding, database)
+
+frontend/
+  ├── src/
+  │   ├── App.jsx        Main component
+  │   └── components/    UI components
+  ├── tests/             Playwright tests
+  └── public/            Static assets
 ```
-
-## Quick Start
-
-### 1. Backend
-
-```bash
-cd backend
-cp .env.example .env
-# Edit .env — add your Razorpay keys and JWT secret
-npm start
-# API runs at http://localhost:5000
-```
-
-### 2. Frontend
-
-```bash
-cd frontend
-npm run dev
-# App runs at http://localhost:5173
-```
-
-## Environment Variables (backend/.env)
-
-```
-PORT=5000
-JWT_SECRET=your_super_secret_key
-
-# Get these from https://dashboard.razorpay.com
-RAZORPAY_KEY_ID=rzp_test_XXXXXXXX
-RAZORPAY_KEY_SECRET=XXXXXXXXXXXXXXXX
-```
-
-## Demo Credentials
-
-| Role   | Email                    | Password |
-|--------|--------------------------|----------|
-| Member | john@example.com         | john123  |
-| Admin  | admin@apexfitness.com    | admin123 |
-
-## Routes
-
-### Public Website
-| Path       | Page        |
-|------------|-------------|
-| `/`        | Home        |
-| `/about`   | About Us    |
-| `/classes` | Classes     |
-| `/pricing` | Pricing     |
-| `/join`    | Register    |
-
-### Member Portal (login required)
-| Path                  | Page               |
-|-----------------------|--------------------|
-| `/member/login`       | Member Login       |
-| `/member/dashboard`   | Dashboard          |
-| `/member/profile`     | Edit Profile       |
-| `/member/membership`  | Buy/Renew Plan     |
-
-### Admin Panel (admin login required)
-| Path                     | Page            |
-|--------------------------|-----------------|
-| `/admin/login`           | Admin Login     |
-| `/admin`                 | Dashboard       |
-| `/admin/members`         | Members Table   |
-| `/admin/members/:id`     | Member Detail   |
-
-## Tech Stack
-
-- **Frontend**: React 19, React Router v7, Axios, Vite
-- **Backend**: Node.js, Express 5, JWT, bcryptjs, Razorpay SDK
-- **Payments**: Razorpay (order creation + webhook verification)
-- **Auth**: JWT Bearer tokens, role-based (member / admin)
-- **Data**: In-memory store (swap with MongoDB/PostgreSQL for production)
-
-## Production Notes
-
-1. Replace in-memory store with a real database (MongoDB, PostgreSQL)
-2. Set a strong `JWT_SECRET` in production
-3. Use Razorpay live keys (not test keys) in production
-4. Add HTTPS / reverse proxy (nginx)
-5. Add rate limiting and input validation (consider `express-validator`, `express-rate-limit`)

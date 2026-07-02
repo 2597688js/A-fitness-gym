@@ -1,25 +1,18 @@
 const getAPIURL = () => {
-  // Use environment variable if set (for production/custom deployments)
-  if (import.meta.env.VITE_API_URL) {
-    return import.meta.env.VITE_API_URL;
+  const apiUrl = import.meta.env.VITE_API_URL;
+
+  if (apiUrl) {
+    return apiUrl;
   }
 
   const hostname = window.location.hostname;
   const protocol = window.location.protocol;
 
-  // If we're on localhost dev server, use localhost backend directly
   if (hostname === 'localhost' || hostname === '127.0.0.1') {
-    return 'http://localhost:3000';
+    return 'http://localhost:5001';
   }
 
-  // For ngrok and other remote URLs, use relative paths (requires proxy in Vite)
-  // This works with the Vite proxy configuration that forwards /api/* to backend
-  if (hostname.includes('ngrok') || hostname.includes('github.dev')) {
-    return '';  // Empty string means use relative paths - /api/* will be proxied
-  }
-
-  // For other deployments (VMs, servers), try same host with port 3000
-  return `${protocol}//${hostname}:3000`;
+  return `${protocol}//${hostname}:5001`;
 };
 
 export const API_URL = getAPIURL();
