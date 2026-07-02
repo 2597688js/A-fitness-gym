@@ -44,7 +44,12 @@
       "Bash(git init *)",
       "Bash(git config *)",
       "Bash(git add *)",
-      "Bash(git commit -m 'Initial commit: Gym web app with PostgreSQL + Prisma + Vercel setup *)"
+      "Bash(git commit -m 'Initial commit: Gym web app with PostgreSQL + Prisma + Vercel setup *)",
+      "Bash(git commit *)",
+      "Bash(brew services *)",
+      "Bash(psql --version)",
+      "Bash(createdb gym_app)",
+      "Bash(psql -lqt)"
     ]
   }
 }
