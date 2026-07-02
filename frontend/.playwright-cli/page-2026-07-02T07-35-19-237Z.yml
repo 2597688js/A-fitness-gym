@@ -1,0 +1,49 @@
+- generic [ref=f4e77]:
+  - complementary [ref=f4e78]:
+    - link "⚡ A Fitness Gym" [ref=f4e79] [cursor=pointer]:
+      - /url: /
+    - generic [ref=f4e80]: Member Portal
+    - navigation [ref=f4e81]:
+      - link "🏠 Dashboard" [ref=f4e82] [cursor=pointer]:
+        - /url: /member/dashboard
+        - generic [ref=f4e83]: 🏠
+        - text: Dashboard
+      - link "👤 My Profile" [ref=f4e84] [cursor=pointer]:
+        - /url: /member/profile
+        - generic [ref=f4e85]: 👤
+        - text: My Profile
+      - link "🎫 Membership" [ref=f4e86] [cursor=pointer]:
+        - /url: /member/membership
+        - generic [ref=f4e87]: 🎫
+        - text: Membership
+    - generic [ref=f4e88]:
+      - generic [ref=f4e89]:
+        - text: Logged in as
+        - strong [ref=f4e90]: Priya Singh
+      - button "🚪 Logout" [ref=f4e91] [cursor=pointer]
+  - main [ref=f4e92]:
+    - generic [ref=f4e93]:
+      - heading "Welcome back, Priya 👋" [level=1] [ref=f4e94]
+      - paragraph [ref=f4e95]: Here's an overview of your membership and progress.
+    - generic [ref=f4e96]:
+      - generic [ref=f4e97]:
+        - generic [ref=f4e98]: Membership Status
+        - generic [ref=f4e99]: No Active Plan
+        - link "Subscribe now →" [ref=f4e101] [cursor=pointer]:
+          - /url: /member/membership
+      - generic [ref=f4e102]:
+        - generic [ref=f4e103]: Days Remaining
+        - generic [ref=f4e104]: —
+      - generic [ref=f4e105]:
+        - generic [ref=f4e106]: Total Memberships
+        - generic [ref=f4e107]: "0"
+        - generic [ref=f4e108]: Since 2026
+    - generic [ref=f4e109]:
+      - heading "Quick Actions" [level=3] [ref=f4e110]
+      - generic [ref=f4e111]:
+        - link "🎫 Buy / Renew Membership" [ref=f4e112] [cursor=pointer]:
+          - /url: /member/membership
+        - link "✏️ Update Profile" [ref=f4e113] [cursor=pointer]:
+          - /url: /member/profile
+        - link "📅 Browse Classes" [ref=f4e114] [cursor=pointer]:
+          - /url: /classes

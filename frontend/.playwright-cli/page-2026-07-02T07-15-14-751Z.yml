@@ -1,0 +1,104 @@
+- generic [ref=e119]:
+  - navigation [ref=e120]:
+    - generic [ref=e121]:
+      - link "⚡ A Fitness Gym by Amit Hussain" [ref=e122] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e123]: ⚡
+        - generic [ref=e124]:
+          - generic [ref=e125]: A Fitness Gym
+          - generic [ref=e126]: by Amit Hussain
+      - generic [ref=e127]:
+        - link "Home" [ref=e128] [cursor=pointer]:
+          - /url: /
+        - link "About" [ref=e129] [cursor=pointer]:
+          - /url: /about
+        - link "Classes" [ref=e130] [cursor=pointer]:
+          - /url: /classes
+        - link "Pricing" [ref=e131] [cursor=pointer]:
+          - /url: /pricing
+        - link "Gallery" [ref=e132] [cursor=pointer]:
+          - /url: /gallery
+      - generic [ref=e133]:
+        - link "Login" [ref=e134] [cursor=pointer]:
+          - /url: /member/login
+        - link "Join" [ref=e135] [cursor=pointer]:
+          - /url: /join
+  - generic [ref=e137]:
+    - heading "About A Fitness Gym" [level=1] [ref=e138]
+    - paragraph [ref=e139]: Founded in 2014, A Fitness Gym has been Mumbai's premier fitness destination for over a decade.
+  - generic [ref=e142]:
+    - generic [ref=e143]:
+      - heading "Our Story" [level=2] [ref=e144]
+      - paragraph [ref=e145]: What started as a small studio with 5 machines and a dream has grown into a 15,000 sq ft state-of-the-art fitness center serving over 2,000 members.
+      - paragraph [ref=e146]: "Our founder Arjun Kapoor built Apex with one philosophy: everyone deserves access to elite fitness guidance, regardless of their starting point."
+      - paragraph [ref=e147]: Today, our team of 50+ certified trainers helps thousands of members achieve goals they never thought possible — weight loss, marathon PRs, building muscle, recovering from injury, and everything in between.
+    - generic [ref=e148]:
+      - generic [ref=e149]:
+        - generic [ref=e150]: "2014"
+        - generic [ref=e151]: Founded
+      - generic [ref=e152]:
+        - generic [ref=e153]: 2,000+
+        - generic [ref=e154]: Members
+      - generic [ref=e155]:
+        - generic [ref=e156]: 50+
+        - generic [ref=e157]: Trainers
+      - generic [ref=e158]:
+        - generic [ref=e159]: "10"
+        - generic [ref=e160]: Awards Won
+  - generic [ref=e162]:
+    - generic [ref=e163]:
+      - heading "Meet Our Expert Team" [level=2] [ref=e164]
+      - paragraph [ref=e165]: World-class trainers dedicated to your success.
+    - generic [ref=e166]:
+      - generic [ref=e167]:
+        - generic [ref=e168]: 👤
+        - generic [ref=e169]:
+          - generic [ref=e170]: Arjun Kapoor
+          - generic [ref=e171]: Head Trainer & Founder
+          - generic [ref=e172]: 📌 Strength & Conditioning · 15 years experience
+      - generic [ref=e173]:
+        - generic [ref=e174]: 👤
+        - generic [ref=e175]:
+          - generic [ref=e176]: Neha Singh
+          - generic [ref=e177]: Yoga & Wellness Director
+          - generic [ref=e178]: 📌 Yoga, Meditation, Pilates · 12 years experience
+      - generic [ref=e179]:
+        - generic [ref=e180]: 👤
+        - generic [ref=e181]:
+          - generic [ref=e182]: Vikram Patel
+          - generic [ref=e183]: Nutrition Coach
+          - generic [ref=e184]: 📌 Sports Nutrition, Diet Planning · 10 years experience
+      - generic [ref=e185]:
+        - generic [ref=e186]: 👤
+        - generic [ref=e187]:
+          - generic [ref=e188]: Deepika Rao
+          - generic [ref=e189]: Cardio & HIIT Specialist
+          - generic [ref=e190]: 📌 HIIT, Zumba, Kickboxing · 8 years experience
+  - contentinfo [ref=e191]:
+    - generic [ref=e192]:
+      - generic [ref=e193]:
+        - generic [ref=e194]:
+          - generic [ref=e195]: ⚡ A Fitness Gym
+          - paragraph [ref=e196]: Your journey to peak performance starts here. World-class facilities, expert trainers.
+        - generic [ref=e197]:
+          - generic [ref=e198]: Quick Links
+          - link "Home" [ref=e200] [cursor=pointer]:
+            - /url: /
+          - link "About" [ref=e202] [cursor=pointer]:
+            - /url: /about
+          - link "Classes" [ref=e204] [cursor=pointer]:
+            - /url: /classes
+          - link "Pricing" [ref=e206] [cursor=pointer]:
+            - /url: /pricing
+          - link "Join Now" [ref=e208] [cursor=pointer]:
+            - /url: /join
+        - generic [ref=e209]:
+          - generic [ref=e210]: Contact
+          - paragraph [ref=e211]:
+            - text: 📍 A Fitness Gym by Amit Hussain,
+            - text: Amit Market, Jagiroad
+            - text: Pin - 782410
+            - text: 📞 +91 98765 43210
+            - text: ✉️ info@afitnessgyam.com
+            - text: "🕐 Mon–Sat: 5am – 11pm"
+      - generic [ref=e212]: © 2026 A Fitness Gym. All rights reserved.

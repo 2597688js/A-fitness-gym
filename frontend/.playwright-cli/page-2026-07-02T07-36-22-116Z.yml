@@ -1,0 +1,59 @@
+- generic [ref=f6e114]:
+  - complementary [ref=f6e115]:
+    - link "⚡ A Fitness Gym" [ref=f6e116] [cursor=pointer]:
+      - /url: /
+    - generic [ref=f6e117]: Member Portal
+    - navigation [ref=f6e118]:
+      - link "🏠 Dashboard" [ref=f6e119] [cursor=pointer]:
+        - /url: /member/dashboard
+        - generic [ref=f6e120]: 🏠
+        - text: Dashboard
+      - link "👤 My Profile" [ref=f6e121] [cursor=pointer]:
+        - /url: /member/profile
+        - generic [ref=f6e122]: 👤
+        - text: My Profile
+      - link "🎫 Membership" [ref=f6e123] [cursor=pointer]:
+        - /url: /member/membership
+        - generic [ref=f6e124]: 🎫
+        - text: Membership
+    - generic [ref=f6e125]:
+      - generic [ref=f6e126]:
+        - text: Logged in as
+        - strong [ref=f6e127]: Sarah Martinez
+      - button "🚪 Logout" [ref=f6e128] [cursor=pointer]
+  - main [ref=f6e129]:
+    - generic [ref=f6e130]:
+      - heading "Buy Membership" [level=1] [ref=f6e131]
+      - paragraph [ref=f6e132]: Choose a plan and pay securely via Razorpay.
+    - generic [ref=f6e133]:
+      - generic [ref=f6e134] [cursor=pointer]:
+        - generic [ref=f6e135]: Basic
+        - generic [ref=f6e136]: ₹1,000
+        - generic [ref=f6e137]: 1 Month
+        - list [ref=f6e138]:
+          - listitem [ref=f6e139]: ✓ Gym floor access
+          - listitem [ref=f6e140]: ✓ Locker room
+          - listitem [ref=f6e141]: ✓ 2 group classes/month
+      - generic [ref=f6e142] [cursor=pointer]:
+        - generic [ref=f6e143]: POPULAR
+        - generic [ref=f6e144]: Standard
+        - generic [ref=f6e145]: ₹2,800
+        - generic [ref=f6e146]: 3 Months
+        - list [ref=f6e147]:
+          - listitem [ref=f6e148]: ✓ All Basic features
+          - listitem [ref=f6e149]: ✓ Unlimited group classes
+          - listitem [ref=f6e150]: ✓ 2 PT sessions/month
+          - listitem [ref=f6e151]: ✓ Nutrition consultation
+        - generic [ref=f6e152]: ✓ Selected
+      - generic [ref=f6e153] [cursor=pointer]:
+        - generic [ref=f6e154]: Premium
+        - generic [ref=f6e155]: ₹5,000
+        - generic [ref=f6e156]: 6 Months
+        - list [ref=f6e157]:
+          - listitem [ref=f6e158]: ✓ All Standard features
+          - listitem [ref=f6e159]: ✓ Unlimited PT sessions
+          - listitem [ref=f6e160]: ✓ Custom diet plan
+          - listitem [ref=f6e161]: ✓ Priority class booking
+          - listitem [ref=f6e162]: ✓ 4 guest passes/month
+    - button "Pay ₹2,800 via Razorpay →" [ref=f6e163] [cursor=pointer]
+    - paragraph [ref=f6e164]: 🔒 Secured by Razorpay. Your payment info is never stored on our servers.

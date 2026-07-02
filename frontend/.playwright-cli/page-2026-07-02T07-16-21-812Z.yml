@@ -1,0 +1,36 @@
+- generic [ref=f12e140]:
+  - generic [ref=f12e141]:
+    - heading "Gallery Management" [level=1] [ref=f12e142]
+    - generic [ref=f12e143]:
+      - link "← Dashboard" [ref=f12e144] [cursor=pointer]:
+        - /url: /admin
+      - link "View Public Gallery →" [ref=f12e145] [cursor=pointer]:
+        - /url: /gallery
+      - link "🏠 Home" [ref=f12e146] [cursor=pointer]:
+        - /url: /
+  - generic [ref=f12e147]:
+    - heading "Upload Media" [level=2] [ref=f12e148]
+    - generic [ref=f12e149]:
+      - generic [ref=f12e150]:
+        - generic [ref=f12e151]: Title
+        - textbox "e.g., Summer Training Session" [ref=f12e152]
+      - generic [ref=f12e153]:
+        - generic [ref=f12e154]: Description
+        - textbox "Optional description" [ref=f12e155]
+      - generic [ref=f12e156]:
+        - generic [ref=f12e157]: Media Type
+        - combobox [ref=f12e158]:
+          - option "Image" [selected]
+          - option "Video"
+      - generic [ref=f12e159]:
+        - generic [ref=f12e160]: Upload File
+        - button "Choose File" [ref=f12e161]
+      - button "Upload Media" [ref=f12e162] [cursor=pointer]
+  - heading "Uploaded Media (1)" [level=2] [ref=f12e163]
+  - generic [ref=f12e165] [cursor=pointer]:
+    - img "Summer Training" [ref=f12e167]
+    - generic [ref=f12e168]:
+      - heading "Summer Training" [level=3] [ref=f12e169]
+      - paragraph [ref=f12e170]: 🖼️ Image
+      - paragraph [ref=f12e171]: Members training in summer season
+      - button "Delete" [ref=f12e172]

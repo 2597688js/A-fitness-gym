@@ -1,0 +1,36 @@
+- generic [ref=f6e167]:
+  - link "⚡ A Fitness Gym" [ref=f6e168] [cursor=pointer]:
+    - /url: /
+  - heading "Member Login" [level=2] [ref=f6e169]
+  - paragraph [ref=f6e170]: Access your member portal
+  - generic [ref=f6e171]:
+    - text: "🔑 Demo:"
+    - strong [ref=f6e172]: john@example.com
+    - text: /
+    - strong [ref=f6e173]: john123
+  - generic [ref=f6e174]:
+    - generic [ref=f6e175]:
+      - generic [ref=f6e176]: Email
+      - textbox "you@example.com" [ref=f6e177]
+    - generic [ref=f6e178]:
+      - generic [ref=f6e179]: Password
+      - textbox "Your password" [ref=f6e180]
+    - button "Log In" [ref=f6e181] [cursor=pointer]
+  - generic [ref=f6e182]:
+    - paragraph [ref=f6e183]: Browse Our Site
+    - generic [ref=f6e184]:
+      - link "Home" [ref=f6e185] [cursor=pointer]:
+        - /url: /
+      - link "About" [ref=f6e186] [cursor=pointer]:
+        - /url: /about
+      - link "Classes" [ref=f6e187] [cursor=pointer]:
+        - /url: /classes
+      - link "Pricing" [ref=f6e188] [cursor=pointer]:
+        - /url: /pricing
+  - paragraph [ref=f6e189]:
+    - text: Not a member yet?
+    - link "Join now" [ref=f6e190] [cursor=pointer]:
+      - /url: /join
+  - paragraph [ref=f6e191]:
+    - link "Admin login →" [ref=f6e192] [cursor=pointer]:
+      - /url: /admin/login

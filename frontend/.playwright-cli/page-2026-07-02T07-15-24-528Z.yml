@@ -1,0 +1,139 @@
+- generic [ref=f4e3]:
+  - navigation [ref=f4e4]:
+    - generic [ref=f4e5]:
+      - link "⚡ A Fitness Gym by Amit Hussain" [ref=f4e6] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f4e7]: ⚡
+        - generic [ref=f4e8]:
+          - generic [ref=f4e9]: A Fitness Gym
+          - generic [ref=f4e10]: by Amit Hussain
+      - generic [ref=f4e11]:
+        - link "Home" [ref=f4e12] [cursor=pointer]:
+          - /url: /
+        - link "About" [ref=f4e13] [cursor=pointer]:
+          - /url: /about
+        - link "Classes" [ref=f4e14] [cursor=pointer]:
+          - /url: /classes
+        - link "Pricing" [ref=f4e15] [cursor=pointer]:
+          - /url: /pricing
+        - link "Gallery" [ref=f4e16] [cursor=pointer]:
+          - /url: /gallery
+      - generic [ref=f4e17]:
+        - link "Login" [ref=f4e18] [cursor=pointer]:
+          - /url: /member/login
+        - link "Join" [ref=f4e19] [cursor=pointer]:
+          - /url: /join
+  - generic [ref=f4e21]:
+    - heading "Simple, Honest Pricing" [level=1] [ref=f4e22]
+    - paragraph [ref=f4e23]: No hidden fees. No annual contracts. Just great fitness at a price that works for you.
+  - generic [ref=f4e26]:
+    - generic [ref=f4e27]:
+      - generic [ref=f4e28]: Basic
+      - generic [ref=f4e29]: ₹1,000/ month
+      - generic [ref=f4e30]: Perfect for getting started
+      - link "Get Started" [ref=f4e31] [cursor=pointer]:
+        - /url: /join
+      - list [ref=f4e32]:
+        - listitem [ref=f4e33]:
+          - generic [ref=f4e34]: ✓
+          - text: Gym floor access
+        - listitem [ref=f4e35]:
+          - generic [ref=f4e36]: ✓
+          - text: Locker room access
+        - listitem [ref=f4e37]:
+          - generic [ref=f4e38]: ✓
+          - text: 2 group classes/month
+        - listitem [ref=f4e39]:
+          - generic [ref=f4e40]: ✓
+          - text: Basic fitness assessment
+        - listitem [ref=f4e41]:
+          - generic [ref=f4e42]: ✓
+          - text: Mobile app access
+        - listitem [ref=f4e43]:
+          - generic [ref=f4e44]: ✗
+          - text: Personal trainer sessions
+        - listitem [ref=f4e45]:
+          - generic [ref=f4e46]: ✗
+          - text: Nutrition coaching
+        - listitem [ref=f4e47]:
+          - generic [ref=f4e48]: ✗
+          - text: Premium classes
+    - generic [ref=f4e49]:
+      - generic [ref=f4e50]: MOST POPULAR
+      - generic [ref=f4e51]: Standard
+      - generic [ref=f4e52]: ₹2,800/ 3 months
+      - generic [ref=f4e53]: Most popular choice
+      - link "Get Started" [ref=f4e54] [cursor=pointer]:
+        - /url: /join
+      - list [ref=f4e55]:
+        - listitem [ref=f4e56]:
+          - generic [ref=f4e57]: ✓
+          - text: Everything in Basic
+        - listitem [ref=f4e58]:
+          - generic [ref=f4e59]: ✓
+          - text: Unlimited group classes
+        - listitem [ref=f4e60]:
+          - generic [ref=f4e61]: ✓
+          - text: 2 PT sessions/month
+        - listitem [ref=f4e62]:
+          - generic [ref=f4e63]: ✓
+          - text: Nutrition consultation
+        - listitem [ref=f4e64]:
+          - generic [ref=f4e65]: ✓
+          - text: Steam room & pool
+        - listitem [ref=f4e66]:
+          - generic [ref=f4e67]: ✗
+          - text: Dedicated personal trainer
+    - generic [ref=f4e68]:
+      - generic [ref=f4e69]: Premium
+      - generic [ref=f4e70]: ₹5,000/ 6 months
+      - generic [ref=f4e71]: For serious athletes
+      - link "Get Started" [ref=f4e72] [cursor=pointer]:
+        - /url: /join
+      - list [ref=f4e73]:
+        - listitem [ref=f4e74]:
+          - generic [ref=f4e75]: ✓
+          - text: Everything in Standard
+        - listitem [ref=f4e76]:
+          - generic [ref=f4e77]: ✓
+          - text: Unlimited PT sessions
+        - listitem [ref=f4e78]:
+          - generic [ref=f4e79]: ✓
+          - text: Dedicated personal trainer
+        - listitem [ref=f4e80]:
+          - generic [ref=f4e81]: ✓
+          - text: Custom diet plan
+        - listitem [ref=f4e82]:
+          - generic [ref=f4e83]: ✓
+          - text: Priority class booking
+        - listitem [ref=f4e84]:
+          - generic [ref=f4e85]: ✓
+          - text: Guest passes (4/month)
+  - contentinfo [ref=f4e86]:
+    - generic [ref=f4e87]:
+      - generic [ref=f4e88]:
+        - generic [ref=f4e89]:
+          - generic [ref=f4e90]: ⚡ A Fitness Gym
+          - paragraph [ref=f4e91]: Your journey to peak performance starts here. World-class facilities, expert trainers.
+        - generic [ref=f4e92]:
+          - generic [ref=f4e93]: Quick Links
+          - link "Home" [ref=f4e95] [cursor=pointer]:
+            - /url: /
+          - link "About" [ref=f4e97] [cursor=pointer]:
+            - /url: /about
+          - link "Classes" [ref=f4e99] [cursor=pointer]:
+            - /url: /classes
+          - link "Pricing" [ref=f4e101] [cursor=pointer]:
+            - /url: /pricing
+          - link "Join Now" [ref=f4e103] [cursor=pointer]:
+            - /url: /join
+        - generic [ref=f4e104]:
+          - generic [ref=f4e105]: Contact
+          - paragraph [ref=f4e106]:
+            - text: 📍 A Fitness Gym by Amit Hussain,
+            - text: Amit Market, Jagiroad
+            - text: Pin - 782410
+            - text: 📞 +91 98765 43210
+            - text: ✉️ info@afitnessgyam.com
+            - text: "🕐 Mon–Sat: 5am – 11pm"
+      - generic [ref=f4e107]: © 2026 A Fitness Gym. All rights reserved.

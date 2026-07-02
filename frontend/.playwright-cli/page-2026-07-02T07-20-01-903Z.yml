@@ -1,0 +1,73 @@
+- generic [ref=f8e26]:
+  - complementary [ref=f8e27]:
+    - link "⚡ A Fitness Gym" [ref=f8e28] [cursor=pointer]:
+      - /url: /
+    - generic [ref=f8e29]: Admin Panel
+    - navigation [ref=f8e30]:
+      - link "📊 Dashboard" [ref=f8e31] [cursor=pointer]:
+        - /url: /admin
+        - generic [ref=f8e32]: 📊
+        - text: Dashboard
+      - link "👥 Members" [ref=f8e33] [cursor=pointer]:
+        - /url: /admin/members
+        - generic [ref=f8e34]: 👥
+        - text: Members
+      - link "🖼️ Gallery" [ref=f8e35] [cursor=pointer]:
+        - /url: /admin/gallery
+        - generic [ref=f8e36]: 🖼️
+        - text: Gallery
+      - generic [ref=f8e37]:
+        - generic [ref=f8e38]: Website
+        - link "🏠 Home" [ref=f8e39] [cursor=pointer]:
+          - /url: /
+          - generic [ref=f8e40]: 🏠
+          - text: Home
+        - link "🎨 Gallery" [ref=f8e41] [cursor=pointer]:
+          - /url: /gallery
+          - generic [ref=f8e42]: 🎨
+          - text: Gallery
+    - generic [ref=f8e43]:
+      - generic [ref=f8e44]:
+        - text: Logged in as
+        - strong [ref=f8e45]: Amit Hussain
+      - button "🚪 Logout" [ref=f8e46] [cursor=pointer]
+  - main [ref=f8e47]:
+    - generic [ref=f8e48]:
+      - heading "Admin Dashboard" [level=1] [ref=f8e49]
+      - paragraph [ref=f8e50]: Overview of your gym's performance.
+    - generic [ref=f8e51]:
+      - generic [ref=f8e53]:
+        - generic [ref=f8e54]:
+          - generic [ref=f8e55]: Total Members
+          - generic [ref=f8e56]: "1"
+        - generic [ref=f8e57]: 👥
+      - generic [ref=f8e59]:
+        - generic [ref=f8e60]:
+          - generic [ref=f8e61]: Active Memberships
+          - generic [ref=f8e62]: "1"
+        - generic [ref=f8e63]: ✅
+      - generic [ref=f8e65]:
+        - generic [ref=f8e66]:
+          - generic [ref=f8e67]: Total Revenue
+          - generic [ref=f8e68]: ₹12,000
+        - generic [ref=f8e69]: 💰
+    - generic [ref=f8e70]:
+      - generic [ref=f8e71]:
+        - heading "Recent Members" [level=3] [ref=f8e72]
+        - link "View All →" [ref=f8e73] [cursor=pointer]:
+          - /url: /admin/members
+      - table [ref=f8e75]:
+        - rowgroup [ref=f8e76]:
+          - row "Name Email Phone Joined" [ref=f8e77]:
+            - columnheader "Name" [ref=f8e78]
+            - columnheader "Email" [ref=f8e79]
+            - columnheader "Phone" [ref=f8e80]
+            - columnheader "Joined" [ref=f8e81]
+        - rowgroup [ref=f8e82]:
+          - row "John Doe john@example.com 9876543210 1/2/2024" [ref=f8e83]:
+            - cell "John Doe" [ref=f8e84]:
+              - link "John Doe" [ref=f8e85] [cursor=pointer]:
+                - /url: /admin/members/member-1
+            - cell "john@example.com" [ref=f8e86]
+            - cell "9876543210" [ref=f8e87]
+            - cell "1/2/2024" [ref=f8e88]

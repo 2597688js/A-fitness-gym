@@ -1,0 +1,31 @@
+- generic [ref=f12e237]:
+  - generic [ref=f12e238]:
+    - text: ⚡ A Fitness Gym
+    - text: Admin Panel
+  - generic [ref=f12e239]:
+    - text: "🔑 Demo:"
+    - strong [ref=f12e240]: admin@afitnessgyam.com
+    - text: /
+    - strong [ref=f12e241]: admin123
+  - generic [ref=f12e242]:
+    - generic [ref=f12e243]:
+      - generic [ref=f12e244]: Email
+      - textbox "admin@afitnessgyam.com" [ref=f12e245]
+    - generic [ref=f12e246]:
+      - generic [ref=f12e247]: Password
+      - textbox "Admin password" [ref=f12e248]
+    - button "🔐 Admin Login" [ref=f12e249] [cursor=pointer]
+  - generic [ref=f12e250]:
+    - paragraph [ref=f12e251]: Browse Our Site
+    - generic [ref=f12e252]:
+      - link "Home" [ref=f12e253] [cursor=pointer]:
+        - /url: /
+      - link "About" [ref=f12e254] [cursor=pointer]:
+        - /url: /about
+      - link "Classes" [ref=f12e255] [cursor=pointer]:
+        - /url: /classes
+      - link "Pricing" [ref=f12e256] [cursor=pointer]:
+        - /url: /pricing
+  - paragraph [ref=f12e257]:
+    - link "← Member login" [ref=f12e258] [cursor=pointer]:
+      - /url: /member/login

@@ -1,0 +1,68 @@
+- generic [ref=f8e197]:
+  - complementary [ref=f8e198]:
+    - link "⚡ A Fitness Gym" [ref=f8e199] [cursor=pointer]:
+      - /url: /
+    - generic [ref=f8e200]: Admin Panel
+    - navigation [ref=f8e201]:
+      - link "📊 Dashboard" [ref=f8e202] [cursor=pointer]:
+        - /url: /admin
+        - generic [ref=f8e203]: 📊
+        - text: Dashboard
+      - link "👥 Members" [ref=f8e204] [cursor=pointer]:
+        - /url: /admin/members
+        - generic [ref=f8e205]: 👥
+        - text: Members
+      - link "🖼️ Gallery" [ref=f8e206] [cursor=pointer]:
+        - /url: /admin/gallery
+        - generic [ref=f8e207]: 🖼️
+        - text: Gallery
+      - generic [ref=f8e208]:
+        - generic [ref=f8e209]: Website
+        - link "🏠 Home" [ref=f8e210] [cursor=pointer]:
+          - /url: /
+          - generic [ref=f8e211]: 🏠
+          - text: Home
+        - link "🎨 Gallery" [ref=f8e212] [cursor=pointer]:
+          - /url: /gallery
+          - generic [ref=f8e213]: 🎨
+          - text: Gallery
+    - generic [ref=f8e214]:
+      - generic [ref=f8e215]:
+        - text: Logged in as
+        - strong [ref=f8e216]: Amit Hussain
+      - button "🚪 Logout" [ref=f8e217] [cursor=pointer]
+  - main [ref=f8e218]:
+    - generic [ref=f8e219]:
+      - link "← Back" [ref=f8e220] [cursor=pointer]:
+        - /url: /admin/members
+      - heading "Member Details" [level=1] [ref=f8e222]
+    - generic [ref=f8e223]:
+      - generic [ref=f8e224]:
+        - generic [ref=f8e225]:
+          - heading "Personal Info" [level=3] [ref=f8e226]
+          - button "Delete Member" [ref=f8e227] [cursor=pointer]
+        - generic [ref=f8e228]:
+          - generic [ref=f8e229]: 👤
+          - generic [ref=f8e230]:
+            - generic [ref=f8e231]: Sarah Martinez
+            - generic [ref=f8e232]: sarah@example.com
+            - generic [ref=f8e234]: No Active Plan
+        - generic [ref=f8e235]:
+          - generic [ref=f8e236]:
+            - generic [ref=f8e237]: 📞 Phone
+            - generic [ref=f8e238]: "9876543211"
+          - generic [ref=f8e239]:
+            - generic [ref=f8e240]: ⚧ Gender
+            - generic [ref=f8e241]: Female
+          - generic [ref=f8e242]:
+            - generic [ref=f8e243]: 🎂 Date of Birth
+            - generic [ref=f8e244]: —
+          - generic [ref=f8e245]:
+            - generic [ref=f8e246]: 📅 Joined
+            - generic [ref=f8e247]: 2/7/2026
+          - generic [ref=f8e248]:
+            - generic [ref=f8e249]: 📍 Address
+            - generic [ref=f8e250]: 456 Fitness Lane, Mumbai
+      - generic [ref=f8e251]:
+        - heading "Membership History" [level=3] [ref=f8e252]
+        - paragraph [ref=f8e253]: No memberships yet.

@@ -1,0 +1,55 @@
+- generic [ref=f10e89]:
+  - complementary [ref=f10e90]:
+    - link "⚡ A Fitness Gym" [ref=f10e91] [cursor=pointer]:
+      - /url: /
+    - generic [ref=f10e92]: Member Portal
+    - navigation [ref=f10e93]:
+      - link "🏠 Dashboard" [ref=f10e94] [cursor=pointer]:
+        - /url: /member/dashboard
+        - generic [ref=f10e95]: 🏠
+        - text: Dashboard
+      - link "👤 My Profile" [ref=f10e96] [cursor=pointer]:
+        - /url: /member/profile
+        - generic [ref=f10e97]: 👤
+        - text: My Profile
+      - link "🎫 Membership" [ref=f10e98] [cursor=pointer]:
+        - /url: /member/membership
+        - generic [ref=f10e99]: 🎫
+        - text: Membership
+    - generic [ref=f10e100]:
+      - generic [ref=f10e101]:
+        - text: Logged in as
+        - strong [ref=f10e102]: John Doe
+      - button "🚪 Logout" [ref=f10e103] [cursor=pointer]
+  - main [ref=f10e104]:
+    - generic [ref=f10e105]:
+      - heading "My Profile" [level=1] [ref=f10e106]
+      - paragraph [ref=f10e107]: Update your personal information and account settings.
+    - generic [ref=f10e109]:
+      - generic [ref=f10e110]:
+        - generic [ref=f10e111]:
+          - generic [ref=f10e112]: Full Name
+          - textbox [ref=f10e113]: John Doe
+        - generic [ref=f10e114]:
+          - generic [ref=f10e115]: Phone Number
+          - textbox "9876543210" [ref=f10e116]
+        - generic [ref=f10e117]:
+          - generic [ref=f10e118]: Date of Birth
+          - textbox [ref=f10e119]: 1990-05-15
+        - generic [ref=f10e120]:
+          - generic [ref=f10e121]: Gender
+          - combobox [ref=f10e122]:
+            - option "Select gender"
+            - option "Male" [selected]
+            - option "Female"
+            - option "Other"
+            - option "Prefer not to say"
+      - generic [ref=f10e123]:
+        - generic [ref=f10e124]: Address
+        - textbox "Your full address" [ref=f10e125]: 123 Fitness Street, Mumbai
+      - generic [ref=f10e126]:
+        - heading "Change Password (optional)" [level=4] [ref=f10e127]
+        - generic [ref=f10e128]:
+          - generic [ref=f10e129]: New Password
+          - textbox "Leave blank to keep current" [ref=f10e130]
+      - button "✓ Save Changes" [ref=f10e131] [cursor=pointer]

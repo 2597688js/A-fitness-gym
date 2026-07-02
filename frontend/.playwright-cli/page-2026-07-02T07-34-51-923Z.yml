@@ -1,0 +1,49 @@
+- generic [ref=f2e77]:
+  - complementary [ref=f2e78]:
+    - link "⚡ A Fitness Gym" [ref=f2e79] [cursor=pointer]:
+      - /url: /
+    - generic [ref=f2e80]: Member Portal
+    - navigation [ref=f2e81]:
+      - link "🏠 Dashboard" [ref=f2e82] [cursor=pointer]:
+        - /url: /member/dashboard
+        - generic [ref=f2e83]: 🏠
+        - text: Dashboard
+      - link "👤 My Profile" [ref=f2e84] [cursor=pointer]:
+        - /url: /member/profile
+        - generic [ref=f2e85]: 👤
+        - text: My Profile
+      - link "🎫 Membership" [ref=f2e86] [cursor=pointer]:
+        - /url: /member/membership
+        - generic [ref=f2e87]: 🎫
+        - text: Membership
+    - generic [ref=f2e88]:
+      - generic [ref=f2e89]:
+        - text: Logged in as
+        - strong [ref=f2e90]: Raj Patel
+      - button "🚪 Logout" [ref=f2e91] [cursor=pointer]
+  - main [ref=f2e92]:
+    - generic [ref=f2e93]:
+      - heading "Welcome back, Raj 👋" [level=1] [ref=f2e94]
+      - paragraph [ref=f2e95]: Here's an overview of your membership and progress.
+    - generic [ref=f2e96]:
+      - generic [ref=f2e97]:
+        - generic [ref=f2e98]: Membership Status
+        - generic [ref=f2e99]: No Active Plan
+        - link "Subscribe now →" [ref=f2e101] [cursor=pointer]:
+          - /url: /member/membership
+      - generic [ref=f2e102]:
+        - generic [ref=f2e103]: Days Remaining
+        - generic [ref=f2e104]: —
+      - generic [ref=f2e105]:
+        - generic [ref=f2e106]: Total Memberships
+        - generic [ref=f2e107]: "0"
+        - generic [ref=f2e108]: Since 2026
+    - generic [ref=f2e109]:
+      - heading "Quick Actions" [level=3] [ref=f2e110]
+      - generic [ref=f2e111]:
+        - link "🎫 Buy / Renew Membership" [ref=f2e112] [cursor=pointer]:
+          - /url: /member/membership
+        - link "✏️ Update Profile" [ref=f2e113] [cursor=pointer]:
+          - /url: /member/profile
+        - link "📅 Browse Classes" [ref=f2e114] [cursor=pointer]:
+          - /url: /classes
