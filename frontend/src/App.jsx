@@ -6,6 +6,9 @@ import Home from './pages/public/Home';
 import About from './pages/public/About';
 import Classes from './pages/public/Classes';
 import Pricing from './pages/public/Pricing';
+import Membership from './pages/public/Membership';
+import Trainers from './pages/public/Trainers';
+import Contact from './pages/public/Contact';
 import Join from './pages/public/Join';
 import PublicGallery from './pages/public/Gallery';
 
@@ -45,6 +48,9 @@ export default function App() {
           <Route path="/about" element={<About />} />
           <Route path="/classes" element={<Classes />} />
           <Route path="/pricing" element={<Pricing />} />
+          <Route path="/membership" element={<Membership />} />
+          <Route path="/trainers" element={<Trainers />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="/gallery" element={<PublicGallery />} />
           <Route path="/join" element={<Join />} />
 

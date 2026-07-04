@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
+import HeroSlider from '../../components/HeroSlider';
 
 const features = [
   { icon: '🏋️', title: 'World-Class Equipment', desc: 'State-of-the-art machines and free weights for every fitness goal.' },
@@ -24,29 +25,32 @@ export default function Home() {
 
       {/* Hero */}
       <section style={{
-        background: 'linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0284c7 100%)',
+        position: 'relative', overflow: 'hidden',
+        background: '#000000',
         color: 'white', padding: 'clamp(2rem, 8vw, 6rem) 0', textAlign: 'center',
       }}>
-        <div className="container">
-          <div style={{ display: 'inline-block', background: 'rgba(14,165,233,0.2)', border: '1px solid rgba(14,165,233,0.4)', borderRadius: '9999px', padding: '0.375rem 1rem', fontSize: '0.85rem', fontWeight: 600, color: '#7dd3fc', marginBottom: '1.5rem' }}>
-            🎉 First Month FREE for New Members
+        <HeroSlider />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.6) 100%)', zIndex: 1 }} />
+        <div className="container" style={{ position: 'relative', zIndex: 2 }}>
+          <div style={{ display: 'inline-block', background: 'rgba(212,165,116,0.15)', border: '1px solid rgba(212,165,116,0.4)', borderRadius: '9999px', padding: '0.375rem 1rem', fontSize: '0.85rem', fontWeight: 600, color: '#D4A574', marginBottom: '1.5rem' }}>
+            PREMIUM FITNESS - BENGALURU
           </div>
           <h1 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 800, lineHeight: 1.1, marginBottom: '1.25rem' }}>
-            Transform Your Body.<br />
-            <span style={{ color: '#38bdf8' }}>Transform Your Life.</span>
+            BUILT.<br />
+            <span style={{ color: '#D4A574' }}>NOT BORN.</span>
           </h1>
-          <p style={{ fontSize: '1.15rem', color: '#cbd5e1', maxWidth: 560, margin: '0 auto 2.5rem', lineHeight: 1.7 }}>
-            Join Mumbai's most premium fitness destination. Expert trainers, cutting-edge equipment, and a community that pushes you to be your best.
+          <p style={{ fontSize: '1.15rem', color: '#b0b0b0', maxWidth: 560, margin: '0 auto 2.5rem', lineHeight: 1.7 }}>
+            Where serious training meets an environment that respects your effort. Premium equipment, expert coaches, zero noise.
           </p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link to="/join" className="btn btn-primary btn-lg">Start Free Trial →</Link>
-            <Link to="/classes" className="btn btn-lg" style={{ background: 'rgba(255,255,255,0.1)', color: 'white', border: '1px solid rgba(255,255,255,0.2)' }}>View Classes</Link>
+            <Link to="/membership" className="btn btn-primary btn-lg">View Plans →</Link>
+            <Link to="/about" className="btn btn-lg" style={{ background: 'rgba(212,165,116,0.1)', color: 'white', border: '1px solid rgba(212,165,116,0.3)' }}>Our Story</Link>
           </div>
           <div style={{ display: 'flex', gap: '3rem', justifyContent: 'center', marginTop: '4rem', flexWrap: 'wrap' }}>
-            {[['2,000+', 'Active Members'], ['50+', 'Expert Trainers'], ['15,000 sq ft', 'Gym Floor'], ['10+', 'Years of Excellence']].map(([num, label]) => (
+            {[['12+', 'Premium Trainers'], ['500+', 'Active Members'], ['6', 'Years of Excellence']].map(([num, label]) => (
               <div key={label} style={{ textAlign: 'center' }}>
-                <div style={{ fontSize: '2rem', fontWeight: 800, color: '#38bdf8' }}>{num}</div>
-                <div style={{ fontSize: '0.85rem', color: '#94a3b8' }}>{label}</div>
+                <div style={{ fontSize: '2rem', fontWeight: 800, color: '#D4A574' }}>{num}</div>
+                <div style={{ fontSize: '0.85rem', color: '#808080' }}>{label}</div>
               </div>
             ))}
           </div>
@@ -54,10 +58,10 @@ export default function Home() {
       </section>
 
       {/* Features */}
-      <section className="section">
+      <section className="section" style={{ background: '#0a0a0a' }}>
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-            <h2 style={{ fontSize: '2rem', fontWeight: 800, marginBottom: '0.75rem' }}>Everything You Need to Succeed</h2>
+            <h2 style={{ fontSize: '2rem', fontWeight: 800, marginBottom: '0.75rem', color: 'white' }}>Everything You Need to Succeed</h2>
             <p style={{ color: 'var(--text-muted)', maxWidth: 500, margin: '0 auto' }}>We've built the ultimate fitness environment so all you have to do is show up.</p>
           </div>
           <div className="grid-3">
@@ -72,11 +76,22 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Contact Strip */}
+      <section style={{ background: 'var(--primary)', color: '#000000', padding: '2.5rem 0', textAlign: 'center' }}>
+        <div className="container">
+          <h3 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '0.75rem', color: '#000000' }}>📞 Get in Touch</h3>
+          <p style={{ fontSize: '1rem', marginBottom: '1.5rem', color: '#333333' }}>Have questions? Contact us on WhatsApp or give us a call!</p>
+          <a href="tel:+919876543210" style={{ display: 'inline-block', background: '#000000', color: 'var(--primary)', padding: '0.875rem 2rem', borderRadius: '0.5rem', fontWeight: 700, fontSize: '1rem', textDecoration: 'none', transition: 'all 0.2s', cursor: 'pointer' }} onMouseEnter={(e) => e.target.style.transform = 'translateY(-2px)'} onMouseLeave={(e) => e.target.style.transform = 'translateY(0)'}>
+            📱 Call: 234567899
+          </a>
+        </div>
+      </section>
+
       {/* Testimonials */}
-      <section className="section" style={{ background: '#f1f5f9' }}>
+      <section className="section" style={{ background: '#0a0a0a' }}>
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-            <h2 style={{ fontSize: '2rem', fontWeight: 800, marginBottom: '0.75rem' }}>Real Results, Real People</h2>
+            <h2 style={{ fontSize: '2rem', fontWeight: 800, marginBottom: '0.75rem', color: 'white' }}>Real Results, Real People</h2>
             <p style={{ color: 'var(--text-muted)' }}>Don't take our word for it — hear from our members.</p>
           </div>
           <div className="grid-3">
@@ -93,12 +108,12 @@ export default function Home() {
       </section>
 
       {/* CTA */}
-      <section className="section" style={{ background: 'var(--primary)', color: 'white', textAlign: 'center' }}>
+      <section className="section" style={{ background: 'var(--primary)', color: '#000000', textAlign: 'center' }}>
         <div className="container">
-          <h2 style={{ fontSize: '2rem', fontWeight: 800, marginBottom: '0.875rem' }}>Ready to Get Started?</h2>
-          <p style={{ fontSize: '1.05rem', color: 'rgba(255,255,255,0.85)', marginBottom: '2rem' }}>Join thousands of members who transformed their health with A Fitness Gym.</p>
-          <Link to="/join" className="btn btn-lg" style={{ background: 'white', color: 'var(--primary)', fontWeight: 700 }}>
-            Join Now — First Month Free →
+          <h2 style={{ fontSize: '2rem', fontWeight: 800, marginBottom: '0.875rem', color: '#000000' }}>Ready to Get Started?</h2>
+          <p style={{ fontSize: '1.05rem', color: '#333333', marginBottom: '2rem' }}>Join hundreds of members who transformed their health with FORGE.</p>
+          <Link to="/membership" className="btn btn-lg" style={{ background: '#000000', color: 'var(--primary)', fontWeight: 700 }}>
+            View Membership Plans →
           </Link>
         </div>
       </section>

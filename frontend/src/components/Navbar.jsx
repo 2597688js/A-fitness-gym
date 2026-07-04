@@ -30,27 +30,28 @@ export default function Navbar() {
   const navLinks = [
     { to: '/', label: 'Home' },
     { to: '/about', label: 'About' },
-    { to: '/classes', label: 'Classes' },
-    { to: '/pricing', label: 'Pricing' },
+    { to: '/membership', label: 'Membership' },
+    { to: '/trainers', label: 'Trainers' },
     { to: '/gallery', label: 'Gallery' },
+    { to: '/contact', label: 'Contact' },
   ];
 
   return (
     <nav style={{
-      background: 'linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%)',
-      borderBottom: '1px solid rgba(14,165,233,0.2)',
+      background: '#000000',
+      borderBottom: '1px solid rgba(212,165,116,0.2)',
       position: 'sticky',
       top: 0,
       zIndex: 100,
-      boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+      boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
     }}>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '1rem 1.5rem', maxWidth: '1200px', margin: '0 auto', width: '100%' }}>
         {/* Logo */}
-        <Link to="/" onClick={() => setMobileMenuOpen(false)} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', fontWeight: 800, fontSize: '1rem', color: '#38bdf8', textDecoration: 'none' }}>
-          <span style={{ fontSize: isMobile ? '1.5rem' : '2rem' }}>⚡</span>
+        <Link to="/" onClick={() => setMobileMenuOpen(false)} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', fontWeight: 800, fontSize: '1rem', color: '#D4A574', textDecoration: 'none' }}>
+          <span style={{ fontSize: isMobile ? '1.5rem' : '2rem' }}>🔥</span>
           <div style={{ lineHeight: 1.2 }}>
-            <div style={{ fontSize: isMobile ? '1rem' : '1.4rem', color: 'white', fontWeight: 800 }}>A Fitness Gym</div>
-            <div style={{ fontSize: isMobile ? '0.65rem' : '0.8rem', fontWeight: 500, color: '#7dd3fc' }}>by Amit Hussain</div>
+            <div style={{ fontSize: isMobile ? '1rem' : '1.4rem', color: 'white', fontWeight: 800, letterSpacing: '0.05em' }}>FORGE</div>
+            <div style={{ fontSize: isMobile ? '0.65rem' : '0.8rem', fontWeight: 500, color: '#D4A574' }}>PREMIUM FITNESS</div>
           </div>
         </Link>
 
@@ -63,8 +64,8 @@ export default function Navbar() {
                 borderRadius: '0.5rem',
                 fontWeight: 500,
                 fontSize: '0.9rem',
-                color: isActive(l.to) ? '#0f172a' : '#e0f2fe',
-                background: isActive(l.to) ? '#38bdf8' : 'rgba(14,165,233,0.1)',
+                color: isActive(l.to) ? '#000000' : '#b0b0b0',
+                background: isActive(l.to) ? '#D4A574' : 'rgba(212,165,116,0.1)',
                 transition: 'all 0.15s',
                 textDecoration: 'none',
               }}>
@@ -116,8 +117,8 @@ export default function Navbar() {
       {/* Mobile Menu */}
       {isMobile && mobileMenuOpen && (
         <div style={{
-          background: 'linear-gradient(135deg, #0284c7 0%, #0ea5e9 100%)',
-          borderTop: '1px solid rgba(14,165,233,0.3)',
+          background: '#1a1a1a',
+          borderTop: '1px solid rgba(212,165,116,0.3)',
           padding: '1rem',
         }}>
           {/* Mobile Nav Links */}
@@ -132,8 +133,8 @@ export default function Navbar() {
                   borderRadius: '0.5rem',
                   fontWeight: 500,
                   fontSize: '0.95rem',
-                  color: isActive(l.to) ? '#0f172a' : 'white',
-                  background: isActive(l.to) ? '#38bdf8' : 'rgba(255,255,255,0.1)',
+                  color: isActive(l.to) ? '#000000' : 'white',
+                  background: isActive(l.to) ? '#D4A574' : 'rgba(212,165,116,0.1)',
                   textDecoration: 'none',
                   transition: 'all 0.15s',
                 }}
@@ -144,7 +145,7 @@ export default function Navbar() {
           </div>
 
           {/* Mobile Auth Actions */}
-          <div style={{ borderTop: '1px solid rgba(255,255,255,0.2)', paddingTop: '1rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+          <div style={{ borderTop: '1px solid rgba(212,165,116,0.2)', paddingTop: '1rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
             {user ? (
               <>
                 {user.role === 'admin' ? (
