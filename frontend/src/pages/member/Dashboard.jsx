@@ -9,12 +9,23 @@ import { API_URL } from '../../config/api';
 export default function MemberDashboard() {
   const { token, user } = useAuth();
   const [profile, setProfile] = useState(null);
+  const [request, setRequest] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get(`${API_URL}/api/member/profile`, { headers: { Authorization: `Bearer ${token}` } })
-      .then(r => setProfile(r.data))
-      .finally(() => setLoading(false));
+    const fetchData = async () => {
+      try {
+        const [profileRes, requestRes] = await Promise.all([
+          axios.get(`${API_URL}/api/member/profile`, { headers: { Authorization: `Bearer ${token}` } }),
+          axios.get(`${API_URL}/api/member/membership-request`, { headers: { Authorization: `Bearer ${token}` } }),
+        ]);
+        setProfile(profileRes.data);
+        setRequest(requestRes.data);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchData();
   }, [token]);
 
   const activeMembership = profile?.memberships?.find(m => m.status === 'active');
@@ -33,6 +44,20 @@ export default function MemberDashboard() {
 
         {loading ? <div className="spinner" /> : (
           <>
+            {/* Pending Request Banner */}
+            {request?.status === 'PENDING' && (
+              <div className="alert alert-success" style={{ marginBottom: '2rem' }}>
+                ⏳ Your {request.plan} membership request is pending admin approval. <Link to="/member/membership" style={{ color: 'var(--primary)', fontWeight: 600, textDecoration: 'underline' }}>View details →</Link>
+              </div>
+            )}
+
+            {request?.status === 'REJECTED' && (
+              <div className="alert alert-error" style={{ marginBottom: '2rem' }}>
+                <strong>✗ Rejected:</strong> {request.adminNote || 'Your request was rejected.'}
+                {' '}<Link to="/member/membership" style={{ color: 'var(--primary)', fontWeight: 600, textDecoration: 'underline' }}>Resubmit →</Link>
+              </div>
+            )}
+
             {/* Stats */}
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1rem', marginBottom: '2rem' }}>
               <div className="card" style={{ padding: '1.5rem' }}>

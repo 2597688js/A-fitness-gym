@@ -28,7 +28,7 @@ export default function Join() {
         dob: form.dob, gender: form.gender, address: form.address, password: form.password,
       });
       login(data.token, data.user);
-      navigate('/member/dashboard');
+      navigate('/member/membership');
     } catch (err) {
       setError(err.response?.data?.error || 'Registration failed. Please try again.');
     } finally {

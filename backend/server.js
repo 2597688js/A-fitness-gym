@@ -2,9 +2,6 @@ import express from 'express';
 import cors from 'cors';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
-import { v4 as uuidv4 } from 'uuid';
-import Razorpay from 'razorpay';
-import crypto from 'crypto';
 import dotenv from 'dotenv';
 import { prisma } from './lib/prisma.js';
 import { upload, cloudinary } from './cloudinary.js';
@@ -30,12 +27,6 @@ app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ limit: '10mb', extended: true }));
 
 const JWT_SECRET = process.env.JWT_SECRET || 'gym_jwt_secret_key_2024';
-
-// ─── Razorpay ─────────────────────────────────────────────────────────────────
-const razorpay = new Razorpay({
-  key_id: process.env.RAZORPAY_KEY_ID || 'rzp_test_YOUR_KEY_ID',
-  key_secret: process.env.RAZORPAY_KEY_SECRET || 'YOUR_KEY_SECRET',
-});
 
 // ─── Middleware ───────────────────────────────────────────────────────────────
 const authenticate = (req, res, next) => {
@@ -103,7 +94,6 @@ async function seedDatabase() {
           startDate: start.toISOString().split('T')[0],
           endDate: end.toISOString().split('T')[0],
           amount: 1200000,
-          paymentId: 'pay_mock_001',
         },
       });
       console.log('✅ Demo member seeded');
@@ -223,68 +213,228 @@ app.get('/api/member/memberships', authenticate, async (req, res) => {
   }
 });
 
-// ─── Payment / Razorpay Routes ────────────────────────────────────────────────
+// ─── Membership Plans ─────────────────────────────────────────────────────────
 const PLANS = {
   Basic:    { amount: 100000,  label: 'Basic',    duration: '1 Month',  durationDays: 30  },
   Standard: { amount: 280000,  label: 'Standard', duration: '3 Months', durationDays: 90  },
   Premium:  { amount: 500000,  label: 'Premium',  duration: '6 Months', durationDays: 180 },
 };
 
-app.post('/api/payment/create-order', authenticate, async (req, res) => {
+function computeMembershipDates(plan, paid, paymentDate) {
+  const planData = PLANS[plan];
+  if (!planData) return { error: 'Invalid plan' };
+  if (!paid || !paymentDate) return { startDate: null, endDate: null, amount: planData.amount };
+  const start = new Date(`${paymentDate}T00:00:00.000Z`);
+  if (isNaN(start.getTime())) return { error: 'Invalid paymentDate' };
+  const end = new Date(start.getTime() + planData.durationDays * 86400000);
+  return { startDate: start.toISOString().split('T')[0], endDate: end.toISOString().split('T')[0], amount: planData.amount };
+}
+
+// ─── Member Membership Request Routes ──────────────────────────────────────────
+app.get('/api/member/membership-request', authenticate, async (req, res) => {
   try {
-    const { plan } = req.body;
-    const planData = PLANS[plan];
-    if (!planData) return res.status(400).json({ error: 'Invalid plan' });
-
-    const order = await razorpay.orders.create({
-      amount: planData.amount,
-      currency: 'INR',
-      receipt: `receipt_${uuidv4().slice(0, 8)}`,
-      notes: { userId: req.user.id, plan },
+    const request = await prisma.membershipRequest.findFirst({
+      where: { userId: req.user.id },
+      orderBy: { createdAt: 'desc' },
     });
-
-    res.json({ order, key: process.env.RAZORPAY_KEY_ID || 'rzp_test_YOUR_KEY_ID', planData });
+    res.json(request || null);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 });
 
-app.post('/api/payment/verify', authenticate, async (req, res) => {
+app.post('/api/member/membership-request', authenticate, async (req, res) => {
   try {
-    const { razorpay_order_id, razorpay_payment_id, razorpay_signature, plan } = req.body;
-    const secret = process.env.RAZORPAY_KEY_SECRET || 'YOUR_KEY_SECRET';
+    const { plan, paid, paymentDate } = req.body;
+    if (!plan) return res.status(400).json({ error: 'Plan is required' });
 
-    const body = razorpay_order_id + '|' + razorpay_payment_id;
-    const expectedSig = crypto.createHmac('sha256', secret).update(body).digest('hex');
+    if (!PLANS[plan]) return res.status(400).json({ error: 'Invalid plan' });
 
-    if (expectedSig !== razorpay_signature) {
-      return res.status(400).json({ error: 'Payment verification failed' });
+    if (paid && !paymentDate) {
+      return res.status(400).json({ error: 'Payment date is required when marking as Paid' });
     }
 
-    const planData = PLANS[plan];
-    const startDate = new Date();
-    const endDate = new Date(startDate.getTime() + planData.durationDays * 86400000);
+    const computed = computeMembershipDates(plan, paid, paymentDate);
+    if (computed.error) return res.status(400).json({ error: computed.error });
 
-    // Deactivate old memberships
-    await prisma.membership.updateMany(
-      { where: { userId: req.user.id } },
-      { data: { status: 'expired' } }
-    );
-
-    const membership = await prisma.membership.create({
-      data: {
-        userId: req.user.id,
-        plan,
-        status: 'active',
-        startDate: startDate.toISOString().split('T')[0],
-        endDate: endDate.toISOString().split('T')[0],
-        amount: planData.amount,
-        paymentId: razorpay_payment_id,
-        orderId: razorpay_order_id,
-      },
+    const existing = await prisma.membershipRequest.findFirst({
+      where: { userId: req.user.id, status: 'PENDING' },
     });
 
-    res.json({ success: true, membership });
+    if (existing) {
+      const updated = await prisma.membershipRequest.update({
+        where: { id: existing.id },
+        data: {
+          plan,
+          paid: paid || false,
+          paymentDate: paid ? paymentDate : null,
+          computedStartDate: computed.startDate,
+          computedEndDate: computed.endDate,
+          amount: computed.amount,
+        },
+      });
+      res.json(updated);
+    } else {
+      const created = await prisma.membershipRequest.create({
+        data: {
+          userId: req.user.id,
+          plan,
+          paid: paid || false,
+          paymentDate: paid ? paymentDate : null,
+          computedStartDate: computed.startDate,
+          computedEndDate: computed.endDate,
+          amount: computed.amount,
+          status: 'PENDING',
+        },
+      });
+      res.status(201).json(created);
+    }
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// ─── Admin Membership Request Routes ───────────────────────────────────────────
+app.get('/api/admin/membership-requests', authenticate, adminOnly, async (req, res) => {
+  try {
+    const { status } = req.query;
+    const statusFilter = status === 'all' ? undefined : (status || 'PENDING');
+
+    const where = statusFilter ? { status: statusFilter } : {};
+
+    const requests = await prisma.membershipRequest.findMany({
+      where,
+      include: { user: { select: { id: true, name: true, email: true, phone: true } } },
+      orderBy: { createdAt: 'desc' },
+    });
+    res.json(requests);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.patch('/api/admin/membership-requests/:id', authenticate, adminOnly, async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { plan, paid, paymentDate, amount } = req.body;
+
+    const request = await prisma.membershipRequest.findUnique({ where: { id } });
+    if (!request) return res.status(404).json({ error: 'Request not found' });
+    if (request.status !== 'PENDING') return res.status(409).json({ error: 'Cannot edit a resolved request' });
+
+    const finalPlan = plan || request.plan;
+    const finalPaid = paid !== undefined ? paid : request.paid;
+    const finalPaymentDate = paymentDate !== undefined ? paymentDate : request.paymentDate;
+
+    const computed = computeMembershipDates(finalPlan, finalPaid, finalPaymentDate);
+    if (computed.error) return res.status(400).json({ error: computed.error });
+
+    const updated = await prisma.membershipRequest.update({
+      where: { id },
+      data: {
+        plan: finalPlan,
+        paid: finalPaid,
+        paymentDate: finalPaymentDate,
+        computedStartDate: computed.startDate,
+        computedEndDate: computed.endDate,
+        amount: amount !== undefined ? amount : computed.amount,
+      },
+    });
+    res.json(updated);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.post('/api/admin/membership-requests/:id/approve', authenticate, adminOnly, async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { plan, paid, paymentDate, amount } = req.body;
+
+    const request = await prisma.membershipRequest.findUnique({ where: { id } });
+    if (!request) return res.status(404).json({ error: 'Request not found' });
+    if (request.status !== 'PENDING') return res.status(409).json({ error: 'Cannot approve a resolved request' });
+
+    const finalPlan = plan !== undefined ? plan : request.plan;
+    const finalPaid = paid !== undefined ? paid : request.paid;
+    const finalPaymentDate = paymentDate !== undefined ? paymentDate : request.paymentDate;
+
+    if (finalPaid !== true || !finalPaymentDate) {
+      return res.status(400).json({ error: 'Cannot approve: payment must be marked Paid with a valid payment date.' });
+    }
+
+    const computed = computeMembershipDates(finalPlan, finalPaid, finalPaymentDate);
+    if (computed.error) return res.status(400).json({ error: computed.error });
+
+    const finalAmount = amount !== undefined ? amount : computed.amount;
+
+    const result = await prisma.$transaction(async (tx) => {
+      const activeMemberships = await tx.membership.findMany({
+        where: { userId: request.userId, status: 'active' },
+      });
+
+      for (const m of activeMemberships) {
+        await tx.membership.update({
+          where: { id: m.id },
+          data: { status: 'expired' },
+        });
+      }
+
+      const membership = await tx.membership.create({
+        data: {
+          userId: request.userId,
+          plan: finalPlan,
+          status: 'active',
+          startDate: computed.startDate,
+          endDate: computed.endDate,
+          amount: finalAmount,
+        },
+      });
+
+      const updatedRequest = await tx.membershipRequest.update({
+        where: { id },
+        data: {
+          plan: finalPlan,
+          paid: true,
+          paymentDate: finalPaymentDate,
+          computedStartDate: computed.startDate,
+          computedEndDate: computed.endDate,
+          amount: finalAmount,
+          status: 'APPROVED',
+          reviewedBy: req.user.id,
+          reviewedAt: new Date(),
+          resultingMembershipId: membership.id,
+        },
+      });
+
+      return { request: updatedRequest, membership };
+    });
+
+    res.json({ success: true, ...result });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.post('/api/admin/membership-requests/:id/reject', authenticate, adminOnly, async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { note } = req.body;
+
+    const request = await prisma.membershipRequest.findUnique({ where: { id } });
+    if (!request) return res.status(404).json({ error: 'Request not found' });
+    if (request.status !== 'PENDING') return res.status(409).json({ error: 'Cannot reject a resolved request' });
+
+    const updated = await prisma.membershipRequest.update({
+      where: { id },
+      data: {
+        status: 'REJECTED',
+        adminNote: note || null,
+        reviewedBy: req.user.id,
+        reviewedAt: new Date(),
+      },
+    });
+    res.json(updated);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
@@ -324,13 +474,17 @@ app.get('/api/admin/members/:id', authenticate, adminOnly, async (req, res) => {
   try {
     const user = await prisma.user.findUnique({
       where: { id: req.params.id },
-      include: { memberships: true },
+      include: {
+        memberships: true,
+        membershipRequests: { orderBy: { createdAt: 'desc' }, take: 1 },
+      },
     });
 
     if (!user) return res.status(404).json({ error: 'Member not found' });
 
     const { password, ...safe } = user;
-    res.json(safe);
+    const latestRequest = user.membershipRequests?.[0] || null;
+    res.json({ ...safe, latestRequest });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }

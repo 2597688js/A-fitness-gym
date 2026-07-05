@@ -23,6 +23,7 @@ import AdminLogin from './pages/admin/Login';
 import AdminDashboard from './pages/admin/Dashboard';
 import AdminMembers from './pages/admin/Members';
 import AdminMemberDetail from './pages/admin/MemberDetail';
+import AdminApprovals from './pages/admin/Approvals';
 import AdminGallery from './pages/admin/Gallery';
 
 function MemberRoute({ children }) {
@@ -63,6 +64,7 @@ export default function App() {
           <Route path="/admin" element={<AdminRoute><AdminDashboard /></AdminRoute>} />
           <Route path="/admin/members" element={<AdminRoute><AdminMembers /></AdminRoute>} />
           <Route path="/admin/members/:id" element={<AdminRoute><AdminMemberDetail /></AdminRoute>} />
+          <Route path="/admin/approvals" element={<AdminRoute><AdminApprovals /></AdminRoute>} />
           <Route path="/admin/gallery" element={<AdminRoute><AdminGallery /></AdminRoute>} />
 
           <Route path="*" element={<Navigate to="/" />} />

@@ -26,8 +26,6 @@
     "jsonwebtoken": "^9.0.3",
     "multer": "^2.2.0",
     "multer-storage-cloudinary": "^4.0.0",
-    "prisma": "^5.22.0",
-    "razorpay": "^2.9.6",
-    "uuid": "^14.0.1"
+    "prisma": "^5.22.0"
   }
 }
