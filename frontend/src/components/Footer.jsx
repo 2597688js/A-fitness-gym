@@ -11,7 +11,7 @@ export default function Footer() {
               <div style={{ fontSize: '0.8rem', fontWeight: 600, marginTop: '0.25rem' }}>by Amit Hussain</div>
             </div>
             <p style={{ fontSize: '0.875rem', lineHeight: 1.7 }}>
-              Premium fitness in Bengaluru. Built. Not Born. Where serious training meets zero noise.
+              Premium fitness in Jagiroad. Built. Not Born. Where serious training meets zero noise.
             </p>
           </div>
           <div>
@@ -29,9 +29,9 @@ export default function Footer() {
           <div>
             <div style={{ fontWeight: 600, color: 'white', marginBottom: '0.75rem' }}>Contact</div>
             <p style={{ fontSize: '0.875rem', lineHeight: 1.8 }}>
-              📍 Bengaluru, India<br />
-              📞 +91 (234) 567-8900<br />
-              ✉️ hello@forgefit.in<br />
+              📍 Amit Market, Jagiroad - 782410<br />
+              📞 +91 9876543210<br />
+              ✉️ info@afitnessgyam.com<br />
               🕐 Mon–Fri: 6am – 11pm<br />
               Sat–Sun: 7am – 9pm
             </p>

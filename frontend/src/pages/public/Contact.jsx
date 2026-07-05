@@ -38,15 +38,15 @@ export default function Contact() {
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '2rem', marginBottom: '3rem' }}>
               <div>
                 <div style={{ color: '#D4A574', fontWeight: 700, marginBottom: '0.5rem' }}>📍 Location</div>
-                <p style={{ color: '#b0b0b0' }}>123 Fitness Street, Bengaluru, India 560001</p>
+                <p style={{ color: '#b0b0b0' }}>Amit Market, Jagiroad - 782410</p>
               </div>
               <div>
                 <div style={{ color: '#D4A574', fontWeight: 700, marginBottom: '0.5rem' }}>📞 Phone</div>
-                <p style={{ color: '#b0b0b0' }}>+91 (234) 567-8900</p>
+                <p style={{ color: '#b0b0b0' }}>+91 9876543210</p>
               </div>
               <div>
                 <div style={{ color: '#D4A574', fontWeight: 700, marginBottom: '0.5rem' }}>📧 Email</div>
-                <p style={{ color: '#b0b0b0' }}>hello@forgefit.in</p>
+                <p style={{ color: '#b0b0b0' }}>info@afitnessgyam.com</p>
               </div>
               <div>
                 <div style={{ color: '#D4A574', fontWeight: 700, marginBottom: '0.5rem' }}>⏰ Hours</div>
