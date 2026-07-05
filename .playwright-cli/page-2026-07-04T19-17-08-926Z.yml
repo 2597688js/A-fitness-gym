@@ -1,0 +1,87 @@
+- generic [ref=f6e3]:
+  - navigation [ref=f6e4]:
+    - generic [ref=f6e5]:
+      - link "🔥 FORGE PREMIUM FITNESS" [ref=f6e6] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f6e7]: 🔥
+        - generic [ref=f6e8]:
+          - generic [ref=f6e9]: FORGE
+          - generic [ref=f6e10]: PREMIUM FITNESS
+      - generic [ref=f6e11]:
+        - link "Home" [ref=f6e12] [cursor=pointer]:
+          - /url: /
+        - link "About" [ref=f6e13] [cursor=pointer]:
+          - /url: /about
+        - link "Membership" [ref=f6e14] [cursor=pointer]:
+          - /url: /membership
+        - link "Trainers" [ref=f6e15] [cursor=pointer]:
+          - /url: /trainers
+        - link "Gallery" [ref=f6e16] [cursor=pointer]:
+          - /url: /gallery
+        - link "Contact" [ref=f6e17] [cursor=pointer]:
+          - /url: /contact
+      - generic [ref=f6e18]:
+        - link "Login" [ref=f6e19] [cursor=pointer]:
+          - /url: /member/login
+        - link "Join" [ref=f6e20] [cursor=pointer]:
+          - /url: /join
+  - generic [ref=f6e22]:
+    - heading "Get in Touch" [level=1] [ref=f6e23]
+    - paragraph [ref=f6e24]: Have questions about FORGE? Reach out to our team and we'll get back to you as soon as possible.
+  - generic [ref=f6e27]:
+    - generic [ref=f6e28]:
+      - generic [ref=f6e29]:
+        - generic [ref=f6e30]: 📍 Location
+        - paragraph [ref=f6e31]: 123 Fitness Street, Bengaluru, India 560001
+      - generic [ref=f6e32]:
+        - generic [ref=f6e33]: 📞 Phone
+        - paragraph [ref=f6e34]: +91 (234) 567-8900
+      - generic [ref=f6e35]:
+        - generic [ref=f6e36]: 📧 Email
+        - paragraph [ref=f6e37]: hello@forgefit.in
+      - generic [ref=f6e38]:
+        - generic [ref=f6e39]: ⏰ Hours
+        - paragraph [ref=f6e40]:
+          - text: "Mon - Fri: 6AM - 11PM"
+          - text: "Sat - Sun: 7AM - 9PM"
+    - generic [ref=f6e41]:
+      - generic [ref=f6e42]:
+        - generic [ref=f6e43]: Your Name
+        - textbox "John Doe" [ref=f6e44]
+      - generic [ref=f6e45]:
+        - generic [ref=f6e46]: Your Email
+        - textbox "john@example.com" [ref=f6e47]
+      - generic [ref=f6e48]:
+        - generic [ref=f6e49]: Subject
+        - textbox "Membership inquiry" [ref=f6e50]
+      - generic [ref=f6e51]:
+        - generic [ref=f6e52]: Message
+        - textbox "Tell us about your fitness goals..." [ref=f6e53]
+      - button "Send Message" [ref=f6e54] [cursor=pointer]
+  - contentinfo [ref=f6e55]:
+    - generic [ref=f6e56]:
+      - generic [ref=f6e57]:
+        - generic [ref=f6e58]:
+          - generic [ref=f6e59]: 🔥 FORGE
+          - paragraph [ref=f6e60]: Premium fitness in Bengaluru. Built. Not Born. Where serious training meets zero noise.
+        - generic [ref=f6e61]:
+          - generic [ref=f6e62]: Quick Links
+          - link "Home" [ref=f6e64] [cursor=pointer]:
+            - /url: /
+          - link "About" [ref=f6e66] [cursor=pointer]:
+            - /url: /about
+          - link "Membership" [ref=f6e68] [cursor=pointer]:
+            - /url: /membership
+          - link "Trainers" [ref=f6e70] [cursor=pointer]:
+            - /url: /trainers
+          - link "Contact" [ref=f6e72] [cursor=pointer]:
+            - /url: /contact
+        - generic [ref=f6e73]:
+          - generic [ref=f6e74]: Contact
+          - paragraph [ref=f6e75]:
+            - text: 📍 Bengaluru, India
+            - text: 📞 +91 (234) 567-8900
+            - text: ✉️ hello@forgefit.in
+            - text: "🕐 Mon–Fri: 6am – 11pm"
+            - text: "Sat–Sun: 7am – 9pm"
+      - generic [ref=f6e76]: © 2026 FORGE. All rights reserved. Premium Fitness by Design.

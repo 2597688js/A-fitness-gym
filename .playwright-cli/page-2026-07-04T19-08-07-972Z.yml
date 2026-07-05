@@ -1,0 +1,137 @@
+- generic [ref=f4e3]:
+  - navigation [ref=f4e4]:
+    - generic [ref=f4e5]:
+      - link "⚡ A Fitness Gym by Amit Hussain" [ref=f4e6] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f4e7]: ⚡
+        - generic [ref=f4e8]:
+          - generic [ref=f4e9]: A Fitness Gym
+          - generic [ref=f4e10]: by Amit Hussain
+      - generic [ref=f4e11]:
+        - link "Home" [ref=f4e12] [cursor=pointer]:
+          - /url: /
+        - link "About" [ref=f4e13] [cursor=pointer]:
+          - /url: /about
+        - link "Classes" [ref=f4e14] [cursor=pointer]:
+          - /url: /classes
+        - link "Pricing" [ref=f4e15] [cursor=pointer]:
+          - /url: /pricing
+        - link "Gallery" [ref=f4e16] [cursor=pointer]:
+          - /url: /gallery
+      - generic [ref=f4e17]:
+        - link "Login" [ref=f4e18] [cursor=pointer]:
+          - /url: /member/login
+        - link "Join" [ref=f4e19] [cursor=pointer]:
+          - /url: /join
+  - generic [ref=f4e21]:
+    - heading "Fitness Classes" [level=1] [ref=f4e22]
+    - paragraph [ref=f4e23]: 50+ weekly classes across all disciplines — something for every goal and fitness level.
+  - generic [ref=f4e26]:
+    - generic [ref=f4e28]:
+      - generic [ref=f4e29]: 🔥
+      - generic [ref=f4e30]:
+        - generic [ref=f4e31]:
+          - heading "HIIT Blast" [level=3] [ref=f4e32]
+          - generic [ref=f4e33]: Intermediate
+        - paragraph [ref=f4e34]: High-intensity interval training to torch calories and boost metabolism.
+        - generic [ref=f4e35]:
+          - generic [ref=f4e36]: 👨‍🏫 Deepika Rao · ⏱ 45 min
+          - generic [ref=f4e37]: 📅 Mon, Wed, Fri — 6am & 6pm
+    - generic [ref=f4e39]:
+      - generic [ref=f4e40]: 🧘
+      - generic [ref=f4e41]:
+        - generic [ref=f4e42]:
+          - heading "Yoga Flow" [level=3] [ref=f4e43]
+          - generic [ref=f4e44]: All Levels
+        - paragraph [ref=f4e45]: Connect mind and body through flowing yoga sequences and breathwork.
+        - generic [ref=f4e46]:
+          - generic [ref=f4e47]: 👨‍🏫 Neha Singh · ⏱ 60 min
+          - generic [ref=f4e48]: 📅 Daily — 7am & 7pm
+    - generic [ref=f4e50]:
+      - generic [ref=f4e51]: 💪
+      - generic [ref=f4e52]:
+        - generic [ref=f4e53]:
+          - heading "Strength Training" [level=3] [ref=f4e54]
+          - generic [ref=f4e55]: Beginner–Advanced
+        - paragraph [ref=f4e56]: Build functional strength with progressive overload techniques.
+        - generic [ref=f4e57]:
+          - generic [ref=f4e58]: 👨‍🏫 Arjun Kapoor · ⏱ 60 min
+          - generic [ref=f4e59]: 📅 Mon–Sat — 8am & 5pm
+    - generic [ref=f4e61]:
+      - generic [ref=f4e62]: 🥊
+      - generic [ref=f4e63]:
+        - generic [ref=f4e64]:
+          - heading "Kickboxing" [level=3] [ref=f4e65]
+          - generic [ref=f4e66]: All Levels
+        - paragraph [ref=f4e67]: Cardio kickboxing that builds coordination, power, and endurance.
+        - generic [ref=f4e68]:
+          - generic [ref=f4e69]: 👨‍🏫 Deepika Rao · ⏱ 50 min
+          - generic [ref=f4e70]: 📅 Tue, Thu, Sat — 7am & 7pm
+    - generic [ref=f4e72]:
+      - generic [ref=f4e73]: 🩱
+      - generic [ref=f4e74]:
+        - generic [ref=f4e75]:
+          - heading "Pilates Core" [level=3] [ref=f4e76]
+          - generic [ref=f4e77]: Beginner
+        - paragraph [ref=f4e78]: Low-impact core strengthening and posture correction exercises.
+        - generic [ref=f4e79]:
+          - generic [ref=f4e80]: 👨‍🏫 Neha Singh · ⏱ 45 min
+          - generic [ref=f4e81]: 📅 Tue, Thu — 9am
+    - generic [ref=f4e83]:
+      - generic [ref=f4e84]: 💃
+      - generic [ref=f4e85]:
+        - generic [ref=f4e86]:
+          - heading "Zumba" [level=3] [ref=f4e87]
+          - generic [ref=f4e88]: All Levels
+        - paragraph [ref=f4e89]: Dance-fitness party that doesn't feel like exercise — burns 500+ calories.
+        - generic [ref=f4e90]:
+          - generic [ref=f4e91]: 👨‍🏫 Deepika Rao · ⏱ 55 min
+          - generic [ref=f4e92]: 📅 Wed, Fri, Sat — 6:30pm
+    - generic [ref=f4e94]:
+      - generic [ref=f4e95]: 🏊
+      - generic [ref=f4e96]:
+        - generic [ref=f4e97]:
+          - heading "Aqua Aerobics" [level=3] [ref=f4e98]
+          - generic [ref=f4e99]: All Levels
+        - paragraph [ref=f4e100]: Low-impact water workout perfect for joints, recovery, and cardio.
+        - generic [ref=f4e101]:
+          - generic [ref=f4e102]: 👨‍🏫 Vikram Patel · ⏱ 45 min
+          - generic [ref=f4e103]: 📅 Mon, Wed, Fri — 8am
+    - generic [ref=f4e105]:
+      - generic [ref=f4e106]: 🧗
+      - generic [ref=f4e107]:
+        - generic [ref=f4e108]:
+          - heading "Functional Fitness" [level=3] [ref=f4e109]
+          - generic [ref=f4e110]: Intermediate
+        - paragraph [ref=f4e111]: Real-world movement patterns for strength, agility, and mobility.
+        - generic [ref=f4e112]:
+          - generic [ref=f4e113]: 👨‍🏫 Arjun Kapoor · ⏱ 60 min
+          - generic [ref=f4e114]: 📅 Mon, Wed, Fri — 5pm
+  - contentinfo [ref=f4e115]:
+    - generic [ref=f4e116]:
+      - generic [ref=f4e117]:
+        - generic [ref=f4e118]:
+          - generic [ref=f4e119]: ⚡ A Fitness Gym
+          - paragraph [ref=f4e120]: Your journey to peak performance starts here. World-class facilities, expert trainers.
+        - generic [ref=f4e121]:
+          - generic [ref=f4e122]: Quick Links
+          - link "Home" [ref=f4e124] [cursor=pointer]:
+            - /url: /
+          - link "About" [ref=f4e126] [cursor=pointer]:
+            - /url: /about
+          - link "Classes" [ref=f4e128] [cursor=pointer]:
+            - /url: /classes
+          - link "Pricing" [ref=f4e130] [cursor=pointer]:
+            - /url: /pricing
+          - link "Join Now" [ref=f4e132] [cursor=pointer]:
+            - /url: /join
+        - generic [ref=f4e133]:
+          - generic [ref=f4e134]: Contact
+          - paragraph [ref=f4e135]:
+            - text: 📍 A Fitness Gym by Amit Hussain,
+            - text: Amit Market, Jagiroad
+            - text: Pin - 782410
+            - text: 📞 +91 98765 43210
+            - text: ✉️ info@afitnessgyam.com
+            - text: "🕐 Mon–Sat: 5am – 11pm"
+      - generic [ref=f4e136]: © 2026 A Fitness Gym. All rights reserved.

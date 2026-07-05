@@ -1,0 +1,61 @@
+- generic [ref=f6e2]:
+  - navigation [ref=f6e3]:
+    - generic [ref=f6e4]:
+      - link "⚡ A Fitness Gym by Amit Hussain" [ref=f6e5] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f6e6]: ⚡
+        - generic [ref=f6e7]:
+          - generic [ref=f6e8]: A Fitness Gym
+          - generic [ref=f6e9]: by Amit Hussain
+      - generic [ref=f6e10]:
+        - link "Home" [ref=f6e11] [cursor=pointer]:
+          - /url: /
+        - link "About" [ref=f6e12] [cursor=pointer]:
+          - /url: /about
+        - link "Classes" [ref=f6e13] [cursor=pointer]:
+          - /url: /classes
+        - link "Pricing" [ref=f6e14] [cursor=pointer]:
+          - /url: /pricing
+        - link "Gallery" [ref=f6e15] [cursor=pointer]:
+          - /url: /gallery
+      - generic [ref=f6e16]:
+        - link "Login" [ref=f6e17] [cursor=pointer]:
+          - /url: /member/login
+        - link "Join" [ref=f6e18] [cursor=pointer]:
+          - /url: /join
+  - generic [ref=f6e20]:
+    - heading "Our Gallery" [level=1] [ref=f6e21]
+    - paragraph [ref=f6e22]: Explore our state-of-the-art facilities and members in action
+    - generic [ref=f6e24] [cursor=pointer]:
+      - img "test" [ref=f6e26]
+      - generic [ref=f6e27]:
+        - heading "test" [level=3] [ref=f6e28]
+        - paragraph [ref=f6e29]: 🖼️ Image
+  - contentinfo [ref=f6e30]:
+    - generic [ref=f6e31]:
+      - generic [ref=f6e32]:
+        - generic [ref=f6e33]:
+          - generic [ref=f6e34]: ⚡ A Fitness Gym
+          - paragraph [ref=f6e35]: Your journey to peak performance starts here. World-class facilities, expert trainers.
+        - generic [ref=f6e36]:
+          - generic [ref=f6e37]: Quick Links
+          - link "Home" [ref=f6e39] [cursor=pointer]:
+            - /url: /
+          - link "About" [ref=f6e41] [cursor=pointer]:
+            - /url: /about
+          - link "Classes" [ref=f6e43] [cursor=pointer]:
+            - /url: /classes
+          - link "Pricing" [ref=f6e45] [cursor=pointer]:
+            - /url: /pricing
+          - link "Join Now" [ref=f6e47] [cursor=pointer]:
+            - /url: /join
+        - generic [ref=f6e48]:
+          - generic [ref=f6e49]: Contact
+          - paragraph [ref=f6e50]:
+            - text: 📍 A Fitness Gym by Amit Hussain,
+            - text: Amit Market, Jagiroad
+            - text: Pin - 782410
+            - text: 📞 +91 98765 43210
+            - text: ✉️ info@afitnessgyam.com
+            - text: "🕐 Mon–Sat: 5am – 11pm"
+      - generic [ref=f6e51]: © 2026 A Fitness Gym. All rights reserved.

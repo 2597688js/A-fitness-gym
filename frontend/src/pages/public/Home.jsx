@@ -13,7 +13,7 @@ const features = [
 ];
 
 const testimonials = [
-  { name: 'Priya Sharma', role: 'Lost 18kg in 5 months', text: 'A Fitness Gym changed my life. The trainers are incredible and the community keeps me motivated every single day.' },
+  { name: 'Priya Sharma', role: 'Lost 18kg in 5 months', text: '<strong>A Fitness Gym by Amit Hussain</strong> changed my life. The trainers are incredible and the community keeps me motivated every single day.' },
   { name: 'Rahul Mehta', role: 'Marathon Runner', text: 'The training programs here are elite level. I shaved 20 minutes off my marathon time after just 3 months of coaching.' },
   { name: 'Sneha Patel', role: 'Yoga Enthusiast', text: 'The yoga classes here are unlike anything I\'ve experienced. The instructors are deeply knowledgeable and truly caring.' },
 ];

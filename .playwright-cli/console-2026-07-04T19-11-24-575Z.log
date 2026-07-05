@@ -1,0 +1,51 @@
+[    2194ms] [LOG] Running frontend commit 6abf5d89e95dcc742ee7f4d80bbd827e29d9dd24 @ https://www.figma.com/make/Q62jB8roiDol9CmV6MsH68/Premium-Gym-Website?t=NDOMLq4WTmg87a0h-1:564
+[    3997ms] [WARNING] Statsig is not ready to log exposures, will retry in 1 seconds @ https://www.figma.com/webpack-artifacts/assets/vendor-core-291869c698410869.min.js.br:53
+[    4533ms] [LOG] [import] git: 6abf5d89e95dcc742ee7f4d80bbd827e29d9dd24, stamp: 9038925522BD4930 @ https://www.figma.com/webpack-artifacts/assets/vendor-core-291869c698410869.min.js.br:53
+[    4972ms] [ERROR] Failed to load resource: the server responded with a status of 401 () @ https://www.figma.com/api/statsig/v1_ruleset:0
+[    4972ms] [ERROR] Failed to fetch v1 ruleset: w: XHR for "/api/statsig/v1_ruleset" failed with status 401
+    at P (https://www.figma.com/webpack-artifacts/assets/3844-32fdd151b12912eb.min.js.br:1359:11332)
+    at async Object.O [as get] (https://www.figma.com/webpack-artifacts/assets/3844-32fdd151b12912eb.min.js.br:1359:11714)
+    at async https://www.figma.com/webpack-artifacts/assets/3844-32fdd151b12912eb.min.js.br:993:248295
+    at async p.validate (https://www.figma.com/webpack-artifacts/assets/3844-32fdd151b12912eb.min.js.br:1339:5041)
+    at async v (https://www.figma.com/webpack-artifacts/assets/8084-f7bf45ed3485f27a.min.js.br:64:269651)
+    at async b (https://www.figma.com/webpack-artifacts/assets/8084-f7bf45ed3485f27a.min.js.br:64:268855)
+    at async Object.write (https://www.figma.com/webpack-artifacts/assets/8084-f7bf45ed3485f27a.min.js.br:64:268474) @ https://www.figma.com/webpack-artifacts/assets/vendor-core-291869c698410869.min.js.br:53
+[    5047ms] [ERROR] Failed to load resource: the server responded with a status of 403 (Forbidden) @ https://browser-intake-datadoghq.com/api/v2/rum:0
+[    8138ms] [INFO] [Fullscreen] Booting... (emscripten version 4.0.21) @ https://www.figma.com/webpack-artifacts/assets/vendor-core-291869c698410869.min.js.br:53
+[    8202ms] [INFO] [GPU] graphicsAPI:"WebGL 2", vendor:"Google Inc. (Apple)", renderer:"ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Pro, Unspecified Version)" version:"OpenGL ES 3.0 (WebGL 2.0 (OpenGL ES 3.0 Chromium))" @ https://www.figma.com/webpack-artifacts/assets/vendor-core-291869c698410869.min.js.br:53
+[    8205ms] [LOG] [Fullscreen] Ready in 3122.2ms @ https://www.figma.com/webpack-artifacts/assets/vendor-core-291869c698410869.min.js.br:53
+[    8317ms] [INFO] [FullscreenApp] calling setEditorTheme and setting preference light @ https://www.figma.com/webpack-artifacts/assets/vendor-core-291869c698410869.min.js.br:53
+[    8406ms] [INFO] [MultiplayerSession] connecting to wss://www.figma.com/api/multiplayer/Q62jB8roiDol9CmV6MsH68?role=editor&tracking_session_id=hFfr8u1ath3hLQN5&version=176&recentReload=0&file-load-streaming-compression=&client_release=6abf5d89e95dcc742ee7f4d80bbd827e29d9dd24&previousLoadMode=full&reconnect-key=1e785f93-e5c2-4de4-a103-dc03ea199b60&reconnect-sequence-number=61&initialFileVersion=106 @ https://www.figma.com/webpack-artifacts/assets/vendor-core-291869c698410869.min.js.br:53
+[    8412ms] [INFO] [MultiplayerSession] Joining file version 106 (skip_reload reconnect) @ https://www.figma.com/webpack-artifacts/assets/vendor-core-291869c698410869.min.js.br:53
+[    8662ms] [INFO] [FullscreenApp] calling setEditorTheme and setting preference light @ https://www.figma.com/webpack-artifacts/assets/vendor-core-291869c698410869.min.js.br:53
+[    8947ms] [LOG] Loaded 49 scripts (6732821b), 0 from cache (0b) @ https://www.figma.com/webpack-artifacts/assets/vendor-core-291869c698410869.min.js.br:53
+[    9191ms] [LOG] [Fullscreen] loadtime=8.66s maxmem=8955364 @ https://www.figma.com/webpack-artifacts/assets/vendor-core-291869c698410869.min.js.br:53
+[    9491ms] [ERROR] Failed to load resource: the server responded with a status of 401 () @ https://www.figma.com/api/integrations/supabase/Q62jB8roiDol9CmV6MsH68/connection:0
+[    9496ms] [ERROR] Failed to load resource: the server responded with a status of 401 () @ https://www.figma.com/api/folders/621756852:0
+[    9496ms] [ERROR] Failed to load resource: the server responded with a status of 401 () @ https://www.figma.com/api/user/plans:0
+[    9508ms] [ERROR] Failed to load resource: the server responded with a status of 401 () @ https://www.figma.com/api/source/v1/make/environment/Q62jB8roiDol9CmV6MsH68:0
+[    9509ms] w: XHR for "/api/folders/621756852" failed with status 401
+    at P (https://www.figma.com/webpack-artifacts/assets/3844-32fdd151b12912eb.min.js.br:1359:11332)
+    at async Object.O [as get] (https://www.figma.com/webpack-artifacts/assets/3844-32fdd151b12912eb.min.js.br:1359:11714)
+    at async https://www.figma.com/webpack-artifacts/assets/3844-32fdd151b12912eb.min.js.br:993:180534
+    at async p.validate (https://www.figma.com/webpack-artifacts/assets/3844-32fdd151b12912eb.min.js.br:1339:5041)
+    at async h.fetchObject (https://www.figma.com/webpack-artifacts/assets/3844-32fdd151b12912eb.min.js.br:200:176811)
+    at async f (https://www.figma.com/webpack-artifacts/assets/3844-32fdd151b12912eb.min.js.br:200:156175)
+[    9631ms] [LOG] [make] sandbox_manager.sandbox_state_emitted @ https://www.figma.com/webpack-artifacts/assets/vendor-core-291869c698410869.min.js.br:53
+[    9631ms] [LOG] [make] sandbox_manager.sandbox_state_transition @ https://www.figma.com/webpack-artifacts/assets/vendor-core-291869c698410869.min.js.br:53
+[    9789ms] [LOG] Sentry event id: d29e67cd9e6e4e94892a0325a054fbd7 @ https://www.figma.com/webpack-artifacts/assets/vendor-core-291869c698410869.min.js.br:53
+[    9822ms] [ERROR] Failed to load resource: the server responded with a status of 401 () @ https://www.figma.com/api/user/plans:0
+[    9932ms] [LOG] [devtools] Initialized LS @ https://www.figma.com/webpack-artifacts/assets/vendor-core-291869c698410869.min.js.br:53
+[    9932ms] [LOG] [devtools] Initialized LS @ https://www.figma.com/webpack-artifacts/assets/vendor-core-291869c698410869.min.js.br:53
+[   10203ms] [ERROR] Failed to load resource: the server responded with a status of 401 () @ https://www.figma.com/api/user/plans:0
+[   10529ms] [ERROR] Failed to load resource: the server responded with a status of 401 () @ https://www.figma.com/api/users/batched?user_ids=1655304570163136653:0
+[   10529ms] [WARNING] Failed to get public users @ https://www.figma.com/webpack-artifacts/assets/vendor-core-291869c698410869.min.js.br:53
+[   10531ms] [ERROR] Failed to load resource: the server responded with a status of 401 () @ https://www.figma.com/api/rev/Q62jB8roiDol9CmV6MsH68/code_snapshot/f1668c3938e995cf2893d257e8d5d8d2446dd45480874c25f6a4b8b391aa1f3b:0
+[   10532ms] [WARNING] Failed to fetch snapshot files: w: XHR for "/api/rev/Q62jB8roiDol9CmV6MsH68/code_snapshot/f1668c3938e995cf2893d257e8d5d8d2446dd45480874c25f6a4b8b391aa1f3b" failed with status 401
+    at P (https://www.figma.com/webpack-artifacts/assets/3844-32fdd151b12912eb.min.js.br:1359:11332)
+    at async Object.O [as get] (https://www.figma.com/webpack-artifacts/assets/3844-32fdd151b12912eb.min.js.br:1359:11714)
+    at async https://www.figma.com/webpack-artifacts/assets/696-29aa72286e50dd85.min.js.br:3:4456
+    at async https://www.figma.com/webpack-artifacts/assets/696-29aa72286e50dd85.min.js.br:3:65650
+    at async https://www.figma.com/webpack-artifacts/assets/4549-8715227159a610ff.min.js.br:3:276
+    at async y (https://www.figma.com/webpack-artifacts/assets/696-29aa72286e50dd85.min.js.br:3:65070)
+    at async https://www.figma.com/webpack-artifacts/assets/696-29aa72286e50dd85.min.js.br:3:37372 @ https://www.figma.com/webpack-artifacts/assets/vendor-core-291869c698410869.min.js.br:53

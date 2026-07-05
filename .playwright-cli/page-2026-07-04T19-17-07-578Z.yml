@@ -1,0 +1,88 @@
+- generic [ref=f4e3]:
+  - navigation [ref=f4e4]:
+    - generic [ref=f4e5]:
+      - link "🔥 FORGE PREMIUM FITNESS" [ref=f4e6] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f4e7]: 🔥
+        - generic [ref=f4e8]:
+          - generic [ref=f4e9]: FORGE
+          - generic [ref=f4e10]: PREMIUM FITNESS
+      - generic [ref=f4e11]:
+        - link "Home" [ref=f4e12] [cursor=pointer]:
+          - /url: /
+        - link "About" [ref=f4e13] [cursor=pointer]:
+          - /url: /about
+        - link "Membership" [ref=f4e14] [cursor=pointer]:
+          - /url: /membership
+        - link "Trainers" [ref=f4e15] [cursor=pointer]:
+          - /url: /trainers
+        - link "Gallery" [ref=f4e16] [cursor=pointer]:
+          - /url: /gallery
+        - link "Contact" [ref=f4e17] [cursor=pointer]:
+          - /url: /contact
+      - generic [ref=f4e18]:
+        - link "Login" [ref=f4e19] [cursor=pointer]:
+          - /url: /member/login
+        - link "Join" [ref=f4e20] [cursor=pointer]:
+          - /url: /join
+  - generic [ref=f4e22]:
+    - heading "Elite Trainers at FORGE" [level=1] [ref=f4e23]
+    - paragraph [ref=f4e24]: Our team of certified professionals is dedicated to helping you achieve your fitness goals with personalized guidance and expert coaching.
+  - generic [ref=f4e27]:
+    - generic [ref=f4e28]:
+      - generic [ref=f4e29]: 💪
+      - heading "Arjun Kapoor" [level=3] [ref=f4e30]
+      - generic [ref=f4e31]: Strength & Conditioning
+      - paragraph [ref=f4e32]: NASM Certified with 8+ years of experience in transforming bodies.
+    - generic [ref=f4e33]:
+      - generic [ref=f4e34]: 💪
+      - heading "Priya Singh" [level=3] [ref=f4e35]
+      - generic [ref=f4e36]: HIIT & Cardio
+      - paragraph [ref=f4e37]: Specializes in high-intensity interval training and endurance coaching.
+    - generic [ref=f4e38]:
+      - generic [ref=f4e39]: 💪
+      - heading "Vikram Patel" [level=3] [ref=f4e40]
+      - generic [ref=f4e41]: Powerlifting
+      - paragraph [ref=f4e42]: Competitive powerlifter and certified strength coach since 2015.
+    - generic [ref=f4e43]:
+      - generic [ref=f4e44]: 💪
+      - heading "Neha Sharma" [level=3] [ref=f4e45]
+      - generic [ref=f4e46]: Yoga & Flexibility
+      - paragraph [ref=f4e47]: E-RYT 500 yoga instructor dedicated to mindful movement.
+    - generic [ref=f4e48]:
+      - generic [ref=f4e49]: 💪
+      - heading "Rajesh Gupta" [level=3] [ref=f4e50]
+      - generic [ref=f4e51]: Nutrition & Fitness
+      - paragraph [ref=f4e52]: Certified nutritionist and personal trainer with holistic approach.
+    - generic [ref=f4e53]:
+      - generic [ref=f4e54]: 💪
+      - heading "Ananya Verma" [level=3] [ref=f4e55]
+      - generic [ref=f4e56]: Women's Fitness
+      - paragraph [ref=f4e57]: Specializes in postnatal fitness and women-centric training programs.
+  - contentinfo [ref=f4e58]:
+    - generic [ref=f4e59]:
+      - generic [ref=f4e60]:
+        - generic [ref=f4e61]:
+          - generic [ref=f4e62]: 🔥 FORGE
+          - paragraph [ref=f4e63]: Premium fitness in Bengaluru. Built. Not Born. Where serious training meets zero noise.
+        - generic [ref=f4e64]:
+          - generic [ref=f4e65]: Quick Links
+          - link "Home" [ref=f4e67] [cursor=pointer]:
+            - /url: /
+          - link "About" [ref=f4e69] [cursor=pointer]:
+            - /url: /about
+          - link "Membership" [ref=f4e71] [cursor=pointer]:
+            - /url: /membership
+          - link "Trainers" [ref=f4e73] [cursor=pointer]:
+            - /url: /trainers
+          - link "Contact" [ref=f4e75] [cursor=pointer]:
+            - /url: /contact
+        - generic [ref=f4e76]:
+          - generic [ref=f4e77]: Contact
+          - paragraph [ref=f4e78]:
+            - text: 📍 Bengaluru, India
+            - text: 📞 +91 (234) 567-8900
+            - text: ✉️ hello@forgefit.in
+            - text: "🕐 Mon–Fri: 6am – 11pm"
+            - text: "Sat–Sun: 7am – 9pm"
+      - generic [ref=f4e79]: © 2026 FORGE. All rights reserved. Premium Fitness by Design.

@@ -119,7 +119,7 @@ export default function MemberSidebar() {
             textDecoration: 'none',
           }}
         >
-          ⚡ A Fitness Gym
+          ⚡ <span style={{ fontWeight: 800, background: 'var(--primary)', color: '#000', padding: '0.25rem 0.5rem', borderRadius: '0.375rem' }}>A Fitness Gym<br/>by Amit Hussain</span>
         </Link>
 
         <div

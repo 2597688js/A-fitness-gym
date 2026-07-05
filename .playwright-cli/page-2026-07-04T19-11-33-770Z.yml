@@ -1,0 +1,83 @@
+- generic [ref=e5]:
+  - generic [ref=e6]:
+    - generic [ref=e10]:
+      - generic:
+        - generic:
+          - img
+          - generic: Code layer isn’t working
+          - generic: Open code editor to review issues
+      - generic [ref=e11]:
+        - generic [ref=e12]:
+          - generic [ref=e14]:
+            - button "Main menu" [ref=e15]:
+              - img
+              - img
+            - generic [ref=e18]:
+              - generic [ref=e20]:
+                - button "Premium Gym Website, file name" [ref=e21]: Premium Gym Website
+                - generic [ref=e22]: File name
+              - button "Edit file menu" [ref=e26]:
+                - generic:
+                  - img
+            - generic [ref=e27]:
+              - generic [ref=e28]:
+                - status
+              - link "Beta, Learn more" [ref=e29]:
+                - /url: https://help.figma.com/hc/articles/37998629035799
+                - generic [ref=e30]: Beta
+          - generic [ref=e35]:
+            - generic [ref=e38]:
+              - generic [ref=e39]:
+                - generic [ref=e41]: Sign up to use Figma Make
+                - generic [ref=e42]:
+                  - button "Sign up" [ref=e43]
+                  - button "Continue with Google" [ref=e46]:
+                    - generic:
+                      - img
+              - generic [ref=e47]:
+                - generic [ref=e50]:
+                  - textbox [disabled] [ref=e51]:
+                    - paragraph [ref=e52]
+                  - generic: Describe your idea
+                - generic [ref=e54]:
+                  - button "Attach design" [disabled] [ref=e57]:
+                    - generic:
+                      - img
+                  - generic [ref=e58]:
+                    - button "Chat mode" [disabled] [ref=e60]:
+                      - generic: Build
+                      - img
+                    - button "Select model" [disabled] [ref=e62]:
+                      - generic: Default
+                      - img
+                    - button "Dictate" [disabled] [ref=e65]:
+                      - generic:
+                        - img
+            - status [ref=e67]:
+              - generic [ref=e68]: Loading
+              - img [ref=e69]
+        - slider "Resize handle" [ref=e71]
+    - toolbar "Help/zoom toolbar" [ref=e135]:
+      - button "Help" [ref=e137]:
+        - img
+  - generic:
+    - status
+    - group [ref=e139]:
+      - alert [ref=e141]
+      - alert [ref=e143]
+    - region "Consent Manager" [ref=e145]:
+      - generic [ref=e146]:
+        - text: This website uses cookies, pixel tags, and local storage for performance, personalization, and marketing purposes. We use our own cookies and some from third parties. Only essential cookies are turned on by default.
+        - link "Cookies settings" [ref=e147]:
+          - /url: /consent-preferences/
+      - generic [ref=e148]:
+        - button "Do not allow cookies" [ref=e149]:
+          - generic:
+            - generic:
+              - generic: Do not allow cookies
+        - button "Allow all cookies" [ref=e150]:
+          - generic:
+            - generic:
+              - generic: Allow all cookies
+      - button [ref=e152]:
+        - img [ref=e154]

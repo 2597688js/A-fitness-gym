@@ -35,7 +35,7 @@ export default function AdminLogin() {
     <div style={{ minHeight: '100vh', display: 'flex', background: '#0f172a', alignItems: 'center', justifyContent: 'center', padding: '2rem' }}>
       <div style={{ background: '#1e293b', border: '1px solid #334155', borderRadius: '1rem', padding: '2.5rem', width: '100%', maxWidth: 420 }}>
         <div style={{ fontWeight: 800, fontSize: '1.25rem', color: 'white', textAlign: 'center', marginBottom: '2rem' }}>
-          ⚡ A Fitness Gym<br />
+          ⚡ <span style={{ fontWeight: 800, background: '#0ea5e9', color: '#000', padding: '0.5rem 0.75rem', borderRadius: '0.375rem', display: 'inline-block', marginBottom: '0.5rem' }}>A Fitness Gym<br/>by Amit Hussain</span><br />
           <span style={{ fontSize: '0.9rem', fontWeight: 500, color: '#64748b' }}>Admin Panel</span>
         </div>
 

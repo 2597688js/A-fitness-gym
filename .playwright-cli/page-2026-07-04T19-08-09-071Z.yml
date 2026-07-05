@@ -1,0 +1,93 @@
+- generic [ref=f10e3]:
+  - navigation [ref=f10e4]:
+    - generic [ref=f10e5]:
+      - link "⚡ A Fitness Gym by Amit Hussain" [ref=f10e6] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f10e7]: ⚡
+        - generic [ref=f10e8]:
+          - generic [ref=f10e9]: A Fitness Gym
+          - generic [ref=f10e10]: by Amit Hussain
+      - generic [ref=f10e11]:
+        - link "Home" [ref=f10e12] [cursor=pointer]:
+          - /url: /
+        - link "About" [ref=f10e13] [cursor=pointer]:
+          - /url: /about
+        - link "Classes" [ref=f10e14] [cursor=pointer]:
+          - /url: /classes
+        - link "Pricing" [ref=f10e15] [cursor=pointer]:
+          - /url: /pricing
+        - link "Gallery" [ref=f10e16] [cursor=pointer]:
+          - /url: /gallery
+      - generic [ref=f10e17]:
+        - link "Login" [ref=f10e18] [cursor=pointer]:
+          - /url: /member/login
+        - link "Join" [ref=f10e19] [cursor=pointer]:
+          - /url: /join
+  - generic [ref=f10e20]:
+    - heading "Join A Fitness Gym" [level=1] [ref=f10e21]
+    - paragraph [ref=f10e22]: Create your member account and start your fitness journey today.
+  - generic [ref=f10e25]:
+    - generic [ref=f10e26]:
+      - generic [ref=f10e27]:
+        - generic [ref=f10e28]:
+          - generic [ref=f10e29]: Full Name *
+          - textbox "Your full name" [ref=f10e30]
+        - generic [ref=f10e31]:
+          - generic [ref=f10e32]: Email *
+          - textbox "you@example.com" [ref=f10e33]
+        - generic [ref=f10e34]:
+          - generic [ref=f10e35]: Phone
+          - textbox "9876543210" [ref=f10e36]
+        - generic [ref=f10e37]:
+          - generic [ref=f10e38]: Date of Birth
+          - textbox [ref=f10e39]
+        - generic [ref=f10e40]:
+          - generic [ref=f10e41]: Gender
+          - combobox [ref=f10e42]:
+            - option "Select gender" [selected]
+            - option "Male"
+            - option "Female"
+            - option "Other"
+            - option "Prefer not to say"
+        - generic [ref=f10e43]:
+          - generic [ref=f10e44]: Address
+          - textbox "Your address" [ref=f10e45]
+        - generic [ref=f10e46]:
+          - generic [ref=f10e47]: Password *
+          - textbox "Min. 6 characters" [ref=f10e48]
+        - generic [ref=f10e49]:
+          - generic [ref=f10e50]: Confirm Password *
+          - textbox "Repeat password" [ref=f10e51]
+      - button "Create Account & Join 🚀" [ref=f10e52] [cursor=pointer]
+    - paragraph [ref=f10e53]:
+      - text: Already a member?
+      - link "Log in here" [ref=f10e54] [cursor=pointer]:
+        - /url: /member/login
+  - contentinfo [ref=f10e55]:
+    - generic [ref=f10e56]:
+      - generic [ref=f10e57]:
+        - generic [ref=f10e58]:
+          - generic [ref=f10e59]: ⚡ A Fitness Gym
+          - paragraph [ref=f10e60]: Your journey to peak performance starts here. World-class facilities, expert trainers.
+        - generic [ref=f10e61]:
+          - generic [ref=f10e62]: Quick Links
+          - link "Home" [ref=f10e64] [cursor=pointer]:
+            - /url: /
+          - link "About" [ref=f10e66] [cursor=pointer]:
+            - /url: /about
+          - link "Classes" [ref=f10e68] [cursor=pointer]:
+            - /url: /classes
+          - link "Pricing" [ref=f10e70] [cursor=pointer]:
+            - /url: /pricing
+          - link "Join Now" [ref=f10e72] [cursor=pointer]:
+            - /url: /join
+        - generic [ref=f10e73]:
+          - generic [ref=f10e74]: Contact
+          - paragraph [ref=f10e75]:
+            - text: 📍 A Fitness Gym by Amit Hussain,
+            - text: Amit Market, Jagiroad
+            - text: Pin - 782410
+            - text: 📞 +91 98765 43210
+            - text: ✉️ info@afitnessgyam.com
+            - text: "🕐 Mon–Sat: 5am – 11pm"
+      - generic [ref=f10e76]: © 2026 A Fitness Gym. All rights reserved.

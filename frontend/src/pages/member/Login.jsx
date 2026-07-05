@@ -34,8 +34,8 @@ export default function MemberLogin() {
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', background: 'var(--bg)' }}>
       <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '2rem' }}>
         <div className="card" style={{ padding: '2.5rem', width: '100%', maxWidth: 420 }}>
-          <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontWeight: 800, fontSize: '1.25rem', color: 'var(--primary)', marginBottom: '2rem', justifyContent: 'center' }}>
-            ⚡ A Fitness Gym
+          <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontWeight: 800, fontSize: '1.25rem', color: 'var(--primary)', marginBottom: '2rem', justifyContent: 'center', flexDirection: 'column' }}>
+            ⚡ <span style={{ fontWeight: 800, background: 'var(--primary)', color: '#000', padding: '0.5rem 0.75rem', borderRadius: '0.375rem', textAlign: 'center', lineHeight: 1.2 }}>A Fitness Gym<br/>by Amit Hussain</span>
           </Link>
           <h2 style={{ fontWeight: 800, fontSize: '1.5rem', marginBottom: '0.375rem', textAlign: 'center' }}>Member Login</h2>
           <p style={{ color: 'var(--text-muted)', fontSize: '0.875rem', textAlign: 'center', marginBottom: '1.75rem' }}>Access your member portal</p>

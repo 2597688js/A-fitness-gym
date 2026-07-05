@@ -37,7 +37,7 @@ export default function Footer() {
           </div>
         </div>
         <div style={{ borderTop: '1px solid rgba(212,165,116,0.2)', paddingTop: '1.5rem', textAlign: 'center', fontSize: '0.8rem' }}>
-          © {new Date().getFullYear()} FORGE. All rights reserved. Premium Fitness by Design.
+          © {new Date().getFullYear()} <span style={{ fontWeight: 800, background: '#0ea5e9', color: '#000', padding: '0.25rem 0.5rem', borderRadius: '0.25rem' }}>A Fitness Gym by Amit Hussain</span>. All rights reserved. Premium Fitness by Design.
         </div>
       </div>
     </footer>

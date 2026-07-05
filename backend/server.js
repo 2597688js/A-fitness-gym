@@ -711,7 +711,7 @@ async function startServer() {
 
     // Start server
     app.listen(PORT, () => {
-      console.log(`🏋️ A Fitness Gym API running on port ${PORT}`);
+      console.log(`🏋️ A Fitness Gym by Amit Hussain API running on port ${PORT}`);
     });
   } catch (err) {
     console.error('Failed to start server:', err);
