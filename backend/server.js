@@ -4,7 +4,6 @@ import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 import dotenv from 'dotenv';
 import { prisma } from './lib/prisma.js';
-import { upload, cloudinary } from './cloudinary.js';
 import multer from 'multer';
 import { transcodeVideoToH264, isVideoFile } from './lib/transcoding.js';
 
@@ -678,12 +677,6 @@ app.delete('/api/gallery/:id', authenticate, adminOnly, async (req, res) => {
     });
 
     if (!item) return res.status(404).json({ error: 'Gallery item not found' });
-
-    if (item.publicId) {
-      await cloudinary.uploader.destroy(item.publicId, {
-        resource_type: item.type === 'video' ? 'video' : 'image',
-      });
-    }
 
     await prisma.galleryItem.delete({ where: { id: req.params.id } });
     res.json({ success: true });

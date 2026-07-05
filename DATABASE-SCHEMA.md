@@ -170,6 +170,13 @@ Premium   500,000         6 Months      180
 - **Images**: image/jpeg, image/png, image/webp, etc.
 - **Videos**: video/mp4 (post-transcode), video/quicktime, video/x-msvideo, etc.
 
+#### Storage Decision
+**Why BYTEA in Postgres, not disk folder or external object storage:**
+- The backend runs as a Docker container without a persistent media volume mounted. Files saved to local disk would be lost on redeploy/restart unless volumes are added as separate infrastructure.
+- Storing files directly in Postgres (BYTEA) is simplest to operate: one datastore, Postgres backups automatically cover all media, no extra service credentials or CDN setup required.
+- At current scale (moderate gallery items), this approach is appropriate. The `GET /api/gallery` list endpoint loads only metadata, never the binary `data` column, avoiding the "load every blob" anti-pattern.
+- **Reconsider if:** total gallery size grows into multi-GB range or media traffic becomes significant. At that point, migrate to S3-compatible storage (e.g., Cloudflare R2, AWS S3, Backblaze B2) with only the URL/key stored in Postgres for faster access and CDN caching.
+
 ---
 
 ## Database Migrations
