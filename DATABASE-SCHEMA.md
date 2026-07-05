@@ -3,10 +3,10 @@
 ## Overview
 - **Database Type**: PostgreSQL
 - **ORM**: Prisma (v5.22.0)
-- **Total Tables**: 3
+- **Total Tables**: 4
 - **Data Access Pattern**: RESTful API with Express.js
 - **Authentication**: JWT (7-day expiry)
-- **Payment Integration**: Razorpay
+- **Payment Model**: Offline with admin approval (no online payments)
 
 ---
 
@@ -38,6 +38,7 @@
 
 #### Relationships:
 - **One-to-Many**: Users have multiple Memberships (onDelete: Cascade)
+- **One-to-Many**: Users have multiple MembershipRequests (onDelete: Cascade)
 
 #### Sample Data:
 - Admin user: admin@afitnessgyam.com (seeded by default)
@@ -59,8 +60,6 @@
 | startDate | String | NOT NULL | Membership start date (ISO format: YYYY-MM-DD) |
 | endDate | String | NOT NULL | Membership expiration date (ISO format: YYYY-MM-DD) |
 | amount | Integer | NOT NULL | Amount paid in paise (₹ * 100) |
-| paymentId | String | OPTIONAL | Razorpay payment transaction ID |
-| orderId | String | OPTIONAL | Razorpay order ID |
 | createdAt | DateTime | DEFAULT: NOW() | Record creation timestamp |
 | updatedAt | DateTime | AUTO-UPDATE | Last update timestamp |
 
@@ -81,7 +80,7 @@ Premium   500,000         6 Months      180
 ```
 
 #### Status Values:
-- `active`: Currently valid membership
+- `active`: Currently valid membership (approved by admin)
 - `expired`: Past membership or manually deactivated
 
 #### Relationships:
@@ -90,7 +89,55 @@ Premium   500,000         6 Months      180
 
 ---
 
-### 3. **GalleryItem Table**
+### 3. **MembershipRequest Table**
+**Purpose**: Tracks pending membership requests awaiting admin review and approval
+
+#### Columns:
+| Column | Type | Constraints | Purpose |
+|--------|------|-----------|---------|
+| id | String (CUID) | PRIMARY KEY | Unique request identifier |
+| userId | String | FOREIGN KEY (NOT NULL) | Reference to User table |
+| user | Relation | ONE-TO-ONE (inverse) | Link to associated User |
+| plan | String | NOT NULL | Requested plan: 'Basic', 'Standard', or 'Premium' |
+| paid | Boolean | DEFAULT: false | Payment status (Paid/Unpaid) |
+| paymentDate | String | OPTIONAL | When payment was made (ISO format: YYYY-MM-DD) |
+| computedStartDate | String | OPTIONAL | Calculated membership start date |
+| computedEndDate | String | OPTIONAL | Calculated membership expiry date |
+| amount | Integer | NOT NULL | Amount in paise (may differ from plan default if admin edited) |
+| status | Enum | DEFAULT: PENDING | RequestStatus: PENDING, APPROVED, or REJECTED |
+| adminNote | String | OPTIONAL | Rejection reason or admin comment |
+| reviewedBy | String | OPTIONAL | Admin User ID who reviewed the request |
+| reviewedAt | DateTime | OPTIONAL | Timestamp of admin review |
+| resultingMembershipId | String | OPTIONAL | ID of the Membership created upon approval |
+| createdAt | DateTime | DEFAULT: NOW() | Request submission timestamp |
+| updatedAt | DateTime | AUTO-UPDATE | Last update timestamp |
+
+#### Indexes:
+- **INDEX**: `MembershipRequest_userId_idx` - Optimizes lookup by member
+- **INDEX**: `MembershipRequest_status_idx` - Optimizes admin queue filtering
+- **COMPOSITE INDEX**: `MembershipRequest_userId_status_idx` - Optimizes "find pending for user"
+
+#### Foreign Key:
+- **User Relationship**: `userId` → `User.id` (ON DELETE CASCADE)
+  - Deleting a user automatically deletes all their pending requests
+
+#### Status Values (Enum):
+- `PENDING`: Awaiting admin review (member can edit)
+- `APPROVED`: Approved by admin; Membership record created
+- `REJECTED`: Rejected by admin; may include adminNote explaining why
+
+#### Workflow:
+1. **PENDING** → Member submits/edits request (one per user); dates only computed if paid=true
+2. **APPROVED** → Admin approves; system deactivates prior memberships and creates new active Membership
+3. **REJECTED** → Admin rejects with optional note; member sees note in dashboard and can resubmit
+
+#### Relationships:
+- **Many-to-One**: Each request belongs to one User
+- **One-to-One (audit)**: resultingMembershipId points to the Membership created on approval (not a formal FK)
+
+---
+
+### 4. **GalleryItem Table**
 **Purpose**: Stores gallery content (images and videos) with binary file data stored directly in the database
 
 #### Columns:
@@ -145,6 +192,16 @@ Premium   500,000         6 Months      180
 - Added `mimeType` column (String) for MIME type tracking
 - **Schema Change**: Migrated from cloud storage to database storage
 
+### Migration 3: Offline Payments + Admin Approval (add_membership_requests_remove_razorpay_fields)
+**Date**: July 5, 2026
+**Changes**:
+- Added `RequestStatus` enum: PENDING, APPROVED, REJECTED
+- Created `MembershipRequest` table for pending membership submissions
+- Dropped `paymentId` column from Membership (Razorpay artifact)
+- Dropped `orderId` column from Membership (Razorpay artifact)
+- Added back-relation `membershipRequests` to User model
+- **Business Logic Change**: Replaced online payments with offline submission + admin approval workflow
+
 ---
 
 ## API Endpoints & Database Operations
@@ -161,19 +218,29 @@ Premium   500,000         6 Months      180
 | GET | `/api/member/profile` | Fetch user + memberships | User, Membership |
 | PUT | `/api/member/profile` | Update profile | User |
 | GET | `/api/member/memberships` | List user's memberships | Membership |
+| GET | `/api/member/membership-request` | Get member's latest request (any status) | MembershipRequest |
+| POST | `/api/member/membership-request` | Submit/update pending membership request | MembershipRequest |
 
-### Payment Routes (Authenticated)
+### Membership Request Routes (Member)
 | Method | Endpoint | Operation | Tables Used |
 |--------|----------|-----------|-------------|
-| POST | `/api/payment/create-order` | Create Razorpay order | (External) |
-| POST | `/api/payment/verify` | Verify payment & create membership | Membership |
+| GET | `/api/member/membership-request` | Fetch latest request | MembershipRequest |
+| POST | `/api/member/membership-request` | Submit or edit pending request (upsert) | MembershipRequest |
+
+### Admin Membership Request Routes (Admin Only)
+| Method | Endpoint | Operation | Tables Used |
+|--------|----------|-----------|-------------|
+| GET | `/api/admin/membership-requests?status=PENDING\|APPROVED\|REJECTED\|all` | List requests (filterable) | MembershipRequest, User |
+| PATCH | `/api/admin/membership-requests/:id` | Edit pending request (stays PENDING) | MembershipRequest |
+| POST | `/api/admin/membership-requests/:id/approve` | Approve request and create Membership | MembershipRequest, Membership |
+| POST | `/api/admin/membership-requests/:id/reject` | Reject request with optional note | MembershipRequest |
 
 ### Admin Routes (Admin Only)
 | Method | Endpoint | Operation | Tables Used |
 |--------|----------|-----------|-------------|
 | GET | `/api/admin/members` | List all members | User, Membership |
-| GET | `/api/admin/members/:id` | Get member details | User, Membership |
-| DELETE | `/api/admin/members/:id` | Remove member | User (cascades to Membership) |
+| GET | `/api/admin/members/:id` | Get member details + latest request | User, Membership, MembershipRequest |
+| DELETE | `/api/admin/members/:id` | Remove member | User (cascades to Membership, MembershipRequest) |
 | GET | `/api/admin/stats` | Get statistics | User, Membership |
 
 ### Gallery Routes
@@ -200,7 +267,7 @@ Premium   500,000         6 Months      180
 ### 3. **Membership Management**
 - **Status Tracking**: Distinguishes active vs. expired memberships
 - **Date Tracking**: Tracks subscription periods (start/end dates)
-- **Payment Tracking**: Links Razorpay transaction IDs for audit trail
+- **Approval Workflow**: MembershipRequest intermediary ensures all submissions are admin-reviewed before becoming effective
 
 ### 4. **File Storage**
 - **In-Database Storage**: Binary files stored directly in PostgreSQL BYTEA
@@ -230,8 +297,6 @@ Premium   500,000         6 Months      180
 ```env
 DATABASE_URL=postgresql://user:password@host:5432/database?schema=public
 JWT_SECRET=your_random_secret_key
-RAZORPAY_KEY_ID=rzp_test_YOUR_KEY_ID
-RAZORPAY_KEY_SECRET=YOUR_KEY_SECRET
 PORT=5000
 NODE_ENV=development
 FRONTEND_URL=http://localhost:5173
@@ -240,6 +305,10 @@ FRONTEND_URL=http://localhost:5173
 ### Optional Variables
 - `CLOUDINARY_*`: No longer used (migrated to database storage)
 - `BACKEND_URL`: For gallery file serving (defaults to http://localhost:3000)
+
+### Removed Variables (No Longer Used)
+- `RAZORPAY_KEY_ID`: Online payments removed
+- `RAZORPAY_KEY_SECRET`: Online payments removed
 
 ---
 
@@ -314,4 +383,5 @@ npx prisma studio                 # Opens localhost:5555 for data visualization
 
 **Last Updated**: July 5, 2026  
 **Database Version**: PostgreSQL (via Prisma v5.22.0)  
-**Schema Version**: Migration 20260702092204 (2 migrations total)
+**Schema Version**: Migration add_membership_requests_remove_razorpay_fields (3 migrations total)  
+**Payment Model**: Offline with admin approval (replaces Razorpay)
