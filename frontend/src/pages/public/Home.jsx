@@ -32,8 +32,9 @@ export default function Home() {
         <HeroSlider />
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.6) 100%)', zIndex: 1 }} />
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
-          <div style={{ display: 'inline-block', background: '#0ea5e9', border: 'none', borderRadius: '9999px', padding: '0.5rem 1rem', fontSize: '0.85rem', fontWeight: 700, color: '#000', marginBottom: '1.5rem' }}>
-            🏋️ A Fitness Gym by Amit Hussain - BENGALURU
+          <div style={{ display: 'inline-block', background: '#0ea5e9', border: 'none', borderRadius: '0.5rem', padding: '1rem 1.5rem', marginBottom: '1.5rem' }}>
+            <div style={{ fontSize: '2rem', fontWeight: 900, color: '#000', letterSpacing: '0.02em', marginBottom: '0.25rem' }}>A Fitness Gym</div>
+            <div style={{ fontSize: '1rem', fontWeight: 600, color: '#000', letterSpacing: '0.05em' }}>by Amit Hussain</div>
           </div>
           <h1 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 800, lineHeight: 1.1, marginBottom: '1.25rem' }}>
             BUILT.<br />

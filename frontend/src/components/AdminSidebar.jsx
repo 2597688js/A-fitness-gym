@@ -110,17 +110,21 @@ export default function AdminSidebar() {
           to="/"
           onClick={() => setSidebarOpen(false)}
           style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '0.5rem',
+            display: 'block',
             fontWeight: 800,
-            fontSize: '1.15rem',
             color: 'white',
             marginBottom: '2rem',
             textDecoration: 'none',
+            background: '#0ea5e9',
+            color: '#000',
+            padding: '0.75rem 1rem',
+            borderRadius: '0.5rem',
+            textAlign: 'center',
+            lineHeight: 1.2,
           }}
         >
-          ⚡ <span style={{ fontWeight: 800, background: '#0ea5e9', color: '#000', padding: '0.25rem 0.5rem', borderRadius: '0.375rem' }}>A Fitness Gym<br/>by Amit Hussain</span>
+          <div style={{ fontSize: '1.4rem', fontWeight: 900, letterSpacing: '0.02em' }}>A Fitness Gym</div>
+          <div style={{ fontSize: '0.8rem', fontWeight: 600, letterSpacing: '0.05em', marginTop: '0.25rem' }}>by Amit Hussain</div>
         </Link>
 
         <div

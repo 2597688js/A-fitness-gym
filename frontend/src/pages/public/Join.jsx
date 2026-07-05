@@ -40,10 +40,11 @@ export default function Join() {
     <div>
       <Navbar />
       <section style={{ background: 'linear-gradient(135deg, #0f172a, #1e3a5f)', padding: '4rem 0', textAlign: 'center', color: 'white' }}>
-        <h1 style={{ fontSize: '2.5rem', fontWeight: 800, marginBottom: '0.75rem' }}>
-          Join <span style={{ background: '#0ea5e9', color: '#000', padding: '0.5rem 0.75rem', borderRadius: '0.375rem', fontWeight: 800 }}>A Fitness Gym<br/>by Amit Hussain</span>
-        </h1>
-        <p style={{ color: '#cbd5e1', fontSize: '1.05rem' }}>Create your member account and start your fitness journey today.</p>
+        <div style={{ background: '#0ea5e9', color: '#000', padding: '1.5rem 1rem', borderRadius: '0.5rem', display: 'inline-block', marginBottom: '1.5rem' }}>
+          <h1 style={{ fontSize: '2.5rem', fontWeight: 900, marginBottom: '0.5rem', letterSpacing: '0.02em' }}>A Fitness Gym</h1>
+          <p style={{ fontSize: '1.1rem', fontWeight: 600, letterSpacing: '0.05em', margin: 0 }}>by Amit Hussain</p>
+        </div>
+        <p style={{ color: '#cbd5e1', fontSize: '1.05rem', marginTop: '1rem' }}>Create your member account and start your fitness journey today.</p>
       </section>
 
       <section className="section" style={{ paddingTop: '3rem' }}>
