@@ -21,7 +21,7 @@ export default function MemberLogin() {
         setError('Use the admin login page instead.');
         return;
       }
-      login(data.token, data.user);
+      await login(data.token, data.user);
       navigate('/member/dashboard');
     } catch (err) {
       setError(err.response?.data?.error || 'Login failed');

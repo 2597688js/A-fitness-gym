@@ -67,7 +67,7 @@ export default function MemberSidebar() {
         style={{
           width: 240,
           flexShrink: 0,
-          background: 'white',
+          background: '#141428',
           borderRight: '1px solid var(--border)',
           minHeight: '100vh',
           padding: '1.5rem 1rem',

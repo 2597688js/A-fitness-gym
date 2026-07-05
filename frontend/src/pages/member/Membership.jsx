@@ -74,14 +74,15 @@ export default function MemberMembership() {
             <div key={p.id} onClick={() => setSelected(p.id)} className="card" style={{
               padding: '1.5rem', cursor: 'pointer', position: 'relative',
               border: selected === p.id ? '2px solid var(--primary)' : '1px solid var(--border)',
-              background: selected === p.id ? 'var(--primary-light)' : 'white',
+              background: selected === p.id ? 'var(--primary-light)' : '#1f1f38',
+              color: selected === p.id ? '#000' : '#fff',
               transition: 'all 0.15s',
             }}>
               {p.popular && <div style={{ position: 'absolute', top: -10, left: '50%', transform: 'translateX(-50%)', background: 'var(--primary)', color: 'white', padding: '0.2rem 0.75rem', borderRadius: '9999px', fontSize: '0.7rem', fontWeight: 700, whiteSpace: 'nowrap' }}>POPULAR</div>}
-              <div style={{ fontWeight: 700, fontSize: '1rem', marginBottom: '0.25rem' }}>{p.name}</div>
-              <div style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--primary)', marginBottom: '0.25rem' }}>{p.price}</div>
-              <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: '1rem' }}>{p.duration}</div>
-              <ul style={{ listStyle: 'none', fontSize: '0.8rem', color: 'var(--text-muted)' }}>
+              <div style={{ fontWeight: 700, fontSize: '1rem', marginBottom: '0.25rem', color: selected === p.id ? '#000' : '#fff' }}>{p.name}</div>
+              <div style={{ fontSize: '1.5rem', fontWeight: 800, color: selected === p.id ? '#c25e17' : 'var(--primary)', marginBottom: '0.25rem' }}>{p.price}</div>
+              <div style={{ fontSize: '0.8rem', color: selected === p.id ? '#666' : '#d0d0d0', marginBottom: '1rem' }}>{p.duration}</div>
+              <ul style={{ listStyle: 'none', fontSize: '0.8rem', color: selected === p.id ? '#666' : '#d0d0d0' }}>
                 {p.features.map(f => <li key={f} style={{ padding: '0.2rem 0' }}>✓ {f}</li>)}
               </ul>
               {selected === p.id && <div style={{ marginTop: '0.875rem', color: 'var(--primary)', fontWeight: 700, fontSize: '0.85rem' }}>✓ Selected</div>}

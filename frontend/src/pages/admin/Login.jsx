@@ -22,7 +22,7 @@ export default function AdminLogin() {
         setError('Access denied. Admin credentials required.');
         return;
       }
-      login(data.token, data.user);
+      await login(data.token, data.user);
       navigate('/admin');
     } catch (err) {
       setError(err.response?.data?.error || 'Login failed');

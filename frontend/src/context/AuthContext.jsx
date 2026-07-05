@@ -18,10 +18,14 @@ export function AuthProvider({ children }) {
   }, []);
 
   const login = (tokenVal, userVal) => {
-    setToken(tokenVal);
-    setUser(userVal);
-    sessionStorage.setItem('gym_token', tokenVal);
-    sessionStorage.setItem('gym_user', JSON.stringify(userVal));
+    return new Promise((resolve) => {
+      setToken(tokenVal);
+      setUser(userVal);
+      sessionStorage.setItem('gym_token', tokenVal);
+      sessionStorage.setItem('gym_user', JSON.stringify(userVal));
+      // Allow React to batch updates before resolving
+      setTimeout(resolve, 0);
+    });
   };
 
   const logout = () => {
