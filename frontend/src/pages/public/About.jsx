@@ -15,7 +15,7 @@ export default function About() {
 
       <section style={{ background: '#000000', color: 'white', padding: '5rem 0', textAlign: 'center' }}>
         <div className="container">
-          <h1 style={{ fontSize: '2.75rem', fontWeight: 800, marginBottom: '1rem' }}>About FORGE</h1>
+          <h1 style={{ fontSize: '2.75rem', fontWeight: 800, marginBottom: '1rem' }}>About <span style={{ background: '#0ea5e9', color: '#000', padding: '0.5rem 0.75rem', borderRadius: '0.375rem' }}>A Fitness Gym by Amit Hussain</span></h1>
           <p style={{ color: '#b0b0b0', fontSize: '1.1rem', maxWidth: 560, margin: '0 auto' }}>
             Premium fitness in Bengaluru. Where serious training meets an environment that respects your effort.
           </p>
@@ -28,10 +28,10 @@ export default function About() {
             <div>
               <h2 style={{ fontSize: '1.875rem', fontWeight: 800, marginBottom: '1rem', color: 'white' }}>Our Story</h2>
               <p style={{ color: 'var(--text-muted)', lineHeight: 1.8, marginBottom: '1rem' }}>
-                FORGE was founded with a vision to create premium fitness space in Bengaluru. What started as a passion has grown into a state-of-the-art fitness facility serving hundreds of members.
+                A Fitness Gym by Amit Hussain was founded with a vision to create premium fitness space in Bengaluru. What started as a passion has grown into a state-of-the-art fitness facility serving hundreds of members.
               </p>
               <p style={{ color: 'var(--text-muted)', lineHeight: 1.8, marginBottom: '1rem' }}>
-                Our founder Arjun Kapoor built FORGE with one philosophy: serious training deserves an environment that respects your effort. Premium equipment, expert coaches, zero noise.
+                Our founder Arjun Kapoor built A Fitness Gym by Amit Hussain with one philosophy: serious training deserves an environment that respects your effort. Premium equipment, expert coaches, zero noise.
               </p>
               <p style={{ color: 'var(--text-muted)', lineHeight: 1.8 }}>
                 Today, our team of 12+ elite trainers helps hundreds of members achieve goals they never thought possible — weight loss, strength building, recovery, and everything in between.

@@ -6,8 +6,8 @@ export default function Footer() {
       <div className="container">
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem', marginBottom: '2rem' }}>
           <div>
-            <div style={{ fontWeight: 800, fontSize: '1.2rem', color: '#D4A574', marginBottom: '0.75rem', letterSpacing: '0.05em' }}>
-              🔥 FORGE
+            <div style={{ fontWeight: 800, fontSize: '1.2rem', color: '#000', marginBottom: '0.75rem', letterSpacing: '0.05em', background: '#0ea5e9', padding: '0.5rem 0.75rem', borderRadius: '0.375rem', display: 'inline-block' }}>
+              🏋️ A Fitness Gym by Amit Hussain
             </div>
             <p style={{ fontSize: '0.875rem', lineHeight: 1.7 }}>
               Premium fitness in Bengaluru. Built. Not Born. Where serious training meets zero noise.

@@ -17,7 +17,7 @@ export default function Trainers() {
 
       <section style={{ background: '#000000', color: 'white', padding: '5rem 0', textAlign: 'center' }}>
         <div className="container">
-          <h1 style={{ fontSize: '2.75rem', fontWeight: 800, marginBottom: '1rem' }}>Elite Trainers at FORGE</h1>
+          <h1 style={{ fontSize: '2.75rem', fontWeight: 800, marginBottom: '1rem' }}>Elite Trainers at <span style={{ background: '#0ea5e9', color: '#000', padding: '0.5rem 0.75rem', borderRadius: '0.375rem' }}>A Fitness Gym</span></h1>
           <p style={{ color: '#b0b0b0', fontSize: '1.1rem', maxWidth: 600, margin: '0 auto' }}>
             Our team of certified professionals is dedicated to helping you achieve your fitness goals with personalized guidance and expert coaching.
           </p>

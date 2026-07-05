@@ -50,8 +50,7 @@ export default function Navbar() {
         <Link to="/" onClick={() => setMobileMenuOpen(false)} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', fontWeight: 800, fontSize: '1rem', color: '#D4A574', textDecoration: 'none' }}>
           <span style={{ fontSize: isMobile ? '1.5rem' : '2rem' }}>🔥</span>
           <div style={{ lineHeight: 1.2 }}>
-            <div style={{ fontSize: isMobile ? '1rem' : '1.4rem', color: 'white', fontWeight: 800, letterSpacing: '0.05em' }}>FORGE</div>
-            <div style={{ fontSize: isMobile ? '0.65rem' : '0.8rem', fontWeight: 500, color: '#D4A574' }}>PREMIUM FITNESS</div>
+            <div style={{ fontSize: isMobile ? '0.75rem' : '1rem', color: '#0ea5e9', fontWeight: 800, letterSpacing: '0.05em', background: '#0ea5e9', color: '#000', padding: '0.375rem 0.5rem', borderRadius: '0.375rem', lineHeight: 1.2 }}>A Fitness Gym<br/>by Amit Hussain</div>
           </div>
         </Link>
 

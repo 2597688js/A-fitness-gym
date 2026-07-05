@@ -32,8 +32,8 @@ export default function Home() {
         <HeroSlider />
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.6) 100%)', zIndex: 1 }} />
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
-          <div style={{ display: 'inline-block', background: 'rgba(212,165,116,0.15)', border: '1px solid rgba(212,165,116,0.4)', borderRadius: '9999px', padding: '0.375rem 1rem', fontSize: '0.85rem', fontWeight: 600, color: '#D4A574', marginBottom: '1.5rem' }}>
-            PREMIUM FITNESS - BENGALURU
+          <div style={{ display: 'inline-block', background: '#0ea5e9', border: 'none', borderRadius: '9999px', padding: '0.5rem 1rem', fontSize: '0.85rem', fontWeight: 700, color: '#000', marginBottom: '1.5rem' }}>
+            🏋️ A Fitness Gym by Amit Hussain - BENGALURU
           </div>
           <h1 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 800, lineHeight: 1.1, marginBottom: '1.25rem' }}>
             BUILT.<br />
@@ -111,7 +111,7 @@ export default function Home() {
       <section className="section" style={{ background: 'var(--primary)', color: '#000000', textAlign: 'center' }}>
         <div className="container">
           <h2 style={{ fontSize: '2rem', fontWeight: 800, marginBottom: '0.875rem', color: '#000000' }}>Ready to Get Started?</h2>
-          <p style={{ fontSize: '1.05rem', color: '#333333', marginBottom: '2rem' }}>Join hundreds of members who transformed their health with FORGE.</p>
+          <p style={{ fontSize: '1.05rem', color: '#333333', marginBottom: '2rem' }}>Join hundreds of members who transformed their health with <strong>A Fitness Gym by Amit Hussain</strong>.</p>
           <Link to="/membership" className="btn btn-lg" style={{ background: '#000000', color: 'var(--primary)', fontWeight: 700 }}>
             View Membership Plans →
           </Link>

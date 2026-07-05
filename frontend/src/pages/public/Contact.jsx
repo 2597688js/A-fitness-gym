@@ -27,7 +27,7 @@ export default function Contact() {
         <div className="container">
           <h1 style={{ fontSize: '2.75rem', fontWeight: 800, marginBottom: '1rem' }}>Get in Touch</h1>
           <p style={{ color: '#b0b0b0', fontSize: '1.1rem', maxWidth: 500, margin: '0 auto' }}>
-            Have questions about FORGE? Reach out to our team and we'll get back to you as soon as possible.
+            Have questions about <strong>A Fitness Gym by Amit Hussain</strong>? Reach out to our team and we'll get back to you as soon as possible.
           </p>
         </div>
       </section>
